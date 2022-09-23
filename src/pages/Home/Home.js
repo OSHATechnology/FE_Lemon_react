@@ -11,8 +11,8 @@ function Home() {
     
     <Row className='h100'>
     <img className='logo1' src={logo1}></img>
-            <Col xs={2} sm={4} md={4} lg={8}><h1><div className='text1 fw-bold'>E-Learning</div></h1>
-            <div className='text2'>E-Learning & Monitoring System By OSHA TECHNOLOGY INDONESIA</div></Col>
+            <Col xs={2} sm={4} md={4} lg={8}><h1><div className='fw-bold'>E-Learning</div></h1>
+            <div className='text2'>Learning & Monitoring System By OSHA TECHNOLOGY INDONESIA</div></Col>
            
             </Row>
             <Col md='4' lg='5' className='d-flex align-items-center md1'>
