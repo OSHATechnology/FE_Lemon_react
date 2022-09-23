@@ -1,0 +1,62 @@
+import React from 'react'
+import { Container,Col,Row } from 'react-bootstrap'
+import NavigationBar from '../../components/NavigationBar/NavigationBar'
+import logo from '../../img/Lemon.png'
+import logo2 from '../../img/sekolah.jpg'
+import './Login.css'
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCheckbox,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBInput
+}
+from 'mdb-react-ui-kit';
+
+const Login = () => {
+  return (
+    <div>
+    <NavigationBar/>
+    <MDBContainer fluid>
+        <MDBRow>
+          <MDBCol md='3' lg='5' className='order-2 order-lg-1 d-flex flex-column align-items-center col1'>
+
+            <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-4">LOGIN SISWA</p>
+            <p className="text-center h7 mb-4">Selamat datang di E-learning Lemon para siswa</p>
+
+            <div className="d-flex flex-row align-items-center mb-4">
+              <MDBIcon fas icon="user me-3" size='lg'/>
+              <MDBInput label='NISN' id='form1' type='text' className='w-100 mg1'/>
+            </div>
+
+            <div className="d-flex flex-row align-items-center mb-4">
+              <MDBIcon fas icon="lock me-3" size='lg'/>
+              <MDBInput label='Password' id='form3' type='password' className='mg1'/>
+            </div>
+
+            <div className='mb-3'>
+              <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember Me' />
+            </div>
+
+            <a className='' href="/register" style={{color: 'darkgray'}} >Belum memiliki akun? Daftar disini</a>
+            <a className='mb-5' href="\" style={{color: 'darkgray'}} >Anda seorang Guru? Login disini</a>
+
+            <MDBBtn className='mx-2' href='/home' color='warning' style={{color: 'white'}} size='lg'>Login</MDBBtn>
+
+          </MDBCol>
+
+          <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
+            <MDBCardImage src={logo} fluid className='mt-4 md2'/>
+          </MDBCol>
+
+        </MDBRow>
+
+  </MDBContainer>
+  </div>
+  )
+}
+
+export default Login

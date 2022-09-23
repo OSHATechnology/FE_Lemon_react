@@ -1,0 +1,23 @@
+.h100 {
+    margin-top: 260px;
+    margin-left: 150px;
+}
+
+.background3 {
+    background:linear-gradient(90deg,rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 90%),url('../../img/kantor2.jpg');
+    padding: 200px;
+    text-align: justify;
+}
+
+.logo1 {
+    width: 110px;
+    height: auto;
+}
+
+.logo3 {
+    width: 500px;
+    height: 400px;
+    margin-left: 900px;
+    margin-top: -220px;
+    border-radius: 20px;
+}

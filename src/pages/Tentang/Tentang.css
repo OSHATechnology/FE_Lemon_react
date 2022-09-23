@@ -1,0 +1,25 @@
+.logo98 {
+    width: 190px;
+    height: auto;
+
+}
+
+.m-7 {
+    margin-bottom: 100px;
+}
+
+.h200 {
+ padding: 200px auto;
+}
+
+.background1 {
+    background:linear-gradient(90deg,rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 90%),url('../../img/sekolah.jpg');
+    padding: 250px;
+    text-align: justify;
+}
+
+.background2 {
+    background:linear-gradient(90deg,rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 90%),url('../../img/OSHAK.jpg');
+    padding: 300px;
+    text-align: justify;
+}
