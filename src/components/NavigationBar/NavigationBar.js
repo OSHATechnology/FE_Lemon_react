@@ -5,9 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 import './NavigationBar.css';
-import logo from '../../img/OSHA.png'
-import logo2 from '../../img/Technology.png'
-import logo3 from '../../img/Lemon.png'
+import logo from '../../img/OSHA.png';
+import logo2 from '../../img/Technology.png';
+import logo3 from '../../img/Lemon.png';
 
 const NavigationBar = () => {
   return (

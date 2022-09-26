@@ -1,9 +1,8 @@
 import React from 'react'
-import SideBar from '../../components/SideBar/SideBar'
-
+import NavBarSiswa from '../../components/NavBarSiswa/NavBarSiswa';
 const AbsensiSiswa = () => {
   return (
-    <div><SideBar/></div>
+    <div><NavBarSiswa/></div>
   )
 }
 
