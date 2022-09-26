@@ -24,7 +24,7 @@ function App() {
       <Route path='/contactus' element={<ContactUs/>}/> 
       <Route path='/loginguru' element={<LoginGuru/>}/>
       <Route path='/dasboardsiswa' element={<DasboardSiswa/>}/>
-      <Route path='/absensi-siswa' element={<AbsensiSiswa/>}/>
+      <Route path='/absensisiswa' element={<AbsensiSiswa/>}/>
       </Routes></>
   );
 }
