@@ -1,4 +1,14 @@
-.h110 {
-    margin-top: 260px;
-    margin-left: 150px;
+.background10 {
+    background:linear-gradient(90deg,rgba(255,255,255,1.0) 0%,rgba(255,255,255,0.1) 200%),url('../../img/OSHA2.jpg');
+    background-size: 1600px 800px;
+    padding: 250px;
+    text-align: justify;
+}
+
+.text1 {
+    margin-left: -90px;
+}
+
+.text2 {
+    margin-left: -90px;
 }

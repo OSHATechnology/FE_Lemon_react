@@ -11,6 +11,8 @@ import ContactUs from './pages/ContactUs/ContactUs';
 import LoginGuru from './pages/LoginGuru/LoginGuru';
 import DasboardSiswa from './pages/DasboardSiswa/DasboardSiswa';
 import AbsensiSiswa from './pages/AbsensiSiswa/AbsensiSiswa';
+import MateriSiswa from './pages/Siswa/MateriSiswa/MateriSiswa';
+import KalenderAkademik from './pages/KalenderAkademik/KalenderAkademik';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
       <Route path='/loginguru' element={<LoginGuru/>}/>
       <Route path='/dasboardsiswa' element={<DasboardSiswa/>}/>
       <Route path='/absensisiswa' element={<AbsensiSiswa/>}/>
+      <Route path='/materisiswa' element={<MateriSiswa/>}/>
+      <Route path='/kalenderakademik' element={<KalenderAkademik/>}/>
       </Routes></>
   );
 }

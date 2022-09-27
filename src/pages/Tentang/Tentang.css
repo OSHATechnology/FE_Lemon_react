@@ -17,9 +17,3 @@
     padding: 250px;
     text-align: justify;
 }
-
-.background2 {
-    background:linear-gradient(90deg,rgba(255,255,255,0.8) 0%,rgba(255,255,255,0.8) 90%),url('../../img/OSHAK.jpg');
-    padding: 300px;
-    text-align: justify;
-}

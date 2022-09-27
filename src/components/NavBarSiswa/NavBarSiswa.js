@@ -4,11 +4,20 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo10 from '../../img/Lemon.png';
 import logo11 from '../../img/user.png';
+import gambarlog from '../../img/logout.png';
 import './NavBarSiswa.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Jam from '../Jam/Jam';
+import Modal from 'react-bootstrap/Modal';
+import React, { useState } from 'react';
+
 
 function NavBarSiswa() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Navbar>
       <Container>
@@ -20,7 +29,7 @@ function NavBarSiswa() {
             <Nav.Link href="/dasboardsiswa">Dasboard</Nav.Link>
             <Nav.Link href="/absensisiswa">Absensi</Nav.Link>
             <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Materi</NavDropdown.Item>
+              <NavDropdown.Item href="/materisiswa">Materi</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Ruang Diskusi
               </NavDropdown.Item>
@@ -28,7 +37,7 @@ function NavBarSiswa() {
             </NavDropdown>
             <NavDropdown title="Akademik" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">E-Rapot</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="/kalenderakademik">
                 Kalender Akademik
               </NavDropdown.Item>
             </NavDropdown>
@@ -37,9 +46,25 @@ function NavBarSiswa() {
           <Navbar.Text>
             <img className='loguser' src={logo11}/>
             Selamat Datang <a href="/pengaturan-akun">Yukicchi</a>
-            , <a className='onlines' href=""  style={{color: '#FF0000'}}>Logout</a>
+            
+          <Button className='logout2' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
+          <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Logout</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Apakah anda ingin logout?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Tidak
+          </Button>
+          <Button variant="danger" href="/home">
+            Logout
+          </Button>
+        </Modal.Footer>
+      </Modal>
           </Navbar.Text>
         </Navbar.Collapse>
+        <Jam/>
       </Container>
     </Navbar>
   );

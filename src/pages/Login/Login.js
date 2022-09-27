@@ -15,6 +15,9 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
+import Button from 'react-bootstrap/Button';
+
+
 
 const Login = () => {
   return (
@@ -44,7 +47,7 @@ const Login = () => {
             <a className='' href="/register" style={{color: 'darkgray'}} >Belum memiliki akun? Daftar disini</a>
             <a className='mb-5' href="\" style={{color: 'darkgray'}} >Anda seorang Guru? Login disini</a>
 
-            <MDBBtn className='mx-2' href='/home' color='warning' style={{color: 'white'}} size='lg'>Login</MDBBtn>
+            <Button className='mx-2' href='/dasboardsiswa' variant='warning' style={{color: 'white'}} size='lg'>Login</Button>
 
           </MDBCol>
 

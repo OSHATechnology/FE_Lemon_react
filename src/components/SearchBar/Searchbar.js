@@ -14,7 +14,7 @@ const Searchbar = () => {
               className="me-8"
               aria-label="Search"
             />
-            <Button variant="outline-warning"  >Search</Button>
+            <Button variant="outline-warning">Search</Button>
           </Form>
     </div>
   )
