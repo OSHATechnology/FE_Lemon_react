@@ -1,5 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
+import Jam from '../../components/Jam/Jam';
 import NavBarSiswa from '../../components/NavBarSiswa/NavBarSiswa';
 import Searchbar from '../../components/SearchBar/Searchbar';
 import './DasboardSiswa.css';

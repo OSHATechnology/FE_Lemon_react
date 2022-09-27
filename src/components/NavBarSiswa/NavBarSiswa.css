@@ -1,7 +1,8 @@
 .logoNav {
   width: 50px;
   height: auto;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 100px;
   margin-top: -5px;
 }
 
@@ -17,4 +18,23 @@
 
 .logoutg {
   width: 40px;
+}
+
+
+.cont {
+  height: 50px;
+  width: 250px;
+  margin-right: 50px;
+}
+
+.jamT {
+  width: 180px;
+}
+
+.color {
+  color: white;
+}
+
+.me12 {
+  margin-left: 50px;
 }

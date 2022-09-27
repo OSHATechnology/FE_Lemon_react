@@ -10,7 +10,7 @@ const KalenderAkademik = () => {
         <NavBarSiswa/>
         <Container>
         <h3><div className='kalender'>Kalender Akademik</div></h3>
-        <iframe className='kalenderA' title="KalenderAkademik" width="1000" height="500" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FJakarta&showTitle=0&showTz=0&src=ZmFyaXpzYWxtYW53QGdtYWlsLmNvbQ&src=aWQuaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%230B8043" frameborder="0" allowFullScreen="true"></iframe>
+        <iframe className='kalenderA' title="KalenderAkademik" width="1000" height="500" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FJakarta&showTz=0&showTitle=0&src=ZmFyaXpzYWxtYW53QGdtYWlsLmNvbQ&src=aWQuaW5kb25lc2lhbiNob2xpZGF5QGdyb3VwLnYuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%23039BE5&color=%23D50000" frameborder="0" allowFullScreen="true"></iframe>
         <p><div className='catatan'>Catatan : Untuk detail informasi, klik info pada kalender akademik.</div></p>
         </Container>
     </div>

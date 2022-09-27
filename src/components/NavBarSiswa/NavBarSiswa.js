@@ -1,4 +1,4 @@
-import Container from 'react-bootstrap/Container';
+import { Col, Container, Row } from 'react-bootstrap'
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import Jam from '../Jam/Jam';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState } from 'react';
+import Tanggal from '../Jam/Tanggal';
 
 
 function NavBarSiswa() {
@@ -25,7 +26,7 @@ function NavBarSiswa() {
         <Navbar.Brand href="/home">E-Learning</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-        <Nav className="me-auto">
+        <Nav className="me-auto me12" >
             <Nav.Link href="/dasboardsiswa">Dasboard</Nav.Link>
             <Nav.Link href="/absensisiswa">Absensi</Nav.Link>
             <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown">
@@ -45,8 +46,7 @@ function NavBarSiswa() {
           </Nav>
           <Navbar.Text>
             <img className='loguser' src={logo11}/>
-            Selamat Datang <a href="/pengaturan-akun">Yukicchi</a>
-            
+            Selamat Datang <a className='fw-bold' href="/pengaturan-akun">Yukicchi</a> 
           <Button className='logout2' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
           <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -64,8 +64,12 @@ function NavBarSiswa() {
       </Modal>
           </Navbar.Text>
         </Navbar.Collapse>
-        <Jam/>
       </Container>
+      <Container className='cont'>
+      <Col className='jamT'>
+      <Jam/>
+        <Tanggal/></Col>
+        </Container>
     </Navbar>
   );
 }

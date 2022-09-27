@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import './Jam.css';
 
 function Jam() {
-  const [clockState, setClockState] = useState();
 
+  const [clockState, setClockState] = useState();
+  
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
@@ -11,7 +12,7 @@ function Jam() {
     }, 1000);
   }, []);
 
-  return <div className='clock12' style={{ fontSize: "20px"}}>{clockState}</div>;
+  return <div className='clock12' style={{ fontSize: "15px"}}>{clockState}</div>;
 }
 
 export default Jam;
