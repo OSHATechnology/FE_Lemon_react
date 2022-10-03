@@ -13,6 +13,7 @@ import {
   from 'mdb-react-ui-kit';
   import logo11 from '../../img/Lemon.png'
   import './LoginGuru.css'
+import { Button } from 'react-bootstrap';
 
 
 const LoginGuru = () => {
@@ -42,7 +43,7 @@ const LoginGuru = () => {
             <a className='' href="/register" style={{color: 'darkgray'}} >Belum memiliki akun? Daftar disini</a>
             <a className='mb-5' href="\" style={{color: 'darkgray'}} >Anda seorang Guru? Login disini</a>
 
-            <MDBBtn className='mx-2' href='/home' color='success' style={{color: 'white'}} size='lg'>Login</MDBBtn>
+            <Button className='mx-2' href='/dasboardguru' variant='success' style={{color: 'white'}} size='lg'>Login</Button>
 
           </MDBCol>
 

@@ -1,0 +1,31 @@
+.selfie {
+    display: flex;
+    justify-content: center;
+}
+
+.cam, .preview {
+    position: relative;
+}
+
+.preview-img {
+    display: block;
+}
+
+.capture-btn {
+    bottom: 9px;
+    font-size: 20px;
+}
+
+.video-player {
+    display: block;
+}
+
+
+.back-btn, .download-btn {
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.download-btn {
+    margin-left: 25px;
+}

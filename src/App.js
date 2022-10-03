@@ -13,6 +13,10 @@ import DasboardSiswa from './pages/DasboardSiswa/DasboardSiswa';
 import AbsensiSiswa from './pages/AbsensiSiswa/AbsensiSiswa';
 import MateriSiswa from './pages/Siswa/MateriSiswa/MateriSiswa';
 import KalenderAkademik from './pages/KalenderAkademik/KalenderAkademik';
+import DasboardGuru from './pages/Guru/DasboardGuru/DasboardGuru';
+import PengaturanGuru from './pages/Guru/PengaturanGuru/PengaturanGuru';
+import MenuKalender from './pages/Guru/MenuKalender/MenuKalender';
+import MateriGuru from './pages/Guru/MateriGuru/MateriGuru';
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
       <Route path='/absensisiswa' element={<AbsensiSiswa/>}/>
       <Route path='/materisiswa' element={<MateriSiswa/>}/>
       <Route path='/kalenderakademik' element={<KalenderAkademik/>}/>
+      <Route path='/dasboardguru' element={<DasboardGuru/>}/>
+      <Route path='/pengaturanguru' element={<PengaturanGuru/>}/>
+      <Route path='/kalenderguru' element={<MenuKalender/>}/>
+      <Route path='/materiguru' element={<MateriGuru/>}/>
       </Routes></>
   );
 }
