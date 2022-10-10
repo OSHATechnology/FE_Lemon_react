@@ -14,6 +14,8 @@ import React, { useState } from 'react';
 import Tanggal from '../Jam/Tanggal';
 
 
+
+
 function NavBarGuru() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -28,24 +30,22 @@ function NavBarGuru() {
         <Navbar.Collapse className="justify-content-end ">
         <Nav className="me-auto me13" color='black'>
             <Nav.Link href="/dasboardguru">Dasboard</Nav.Link>
-            <Nav.Link href="/">Absensi</Nav.Link>
+            <Nav.Link href="#">Absensi</Nav.Link>
             <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/materiguru">Materi Siswa</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Kelas Virtual</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Ruang Diskusi</NavDropdown.Item>
+              <NavDropdown.Item href="/materiguru">Materi Dan Tugas Siswa</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Akademik" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Jurnal</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">E-Rapot</NavDropdown.Item>
-              <NavDropdown.Item href="/kalenderguru">
-                Kalender Akademik
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/erapor">E-Rapot</NavDropdown.Item>
+              <NavDropdown.Item href="/kalenderguru">Kalender Akademik</NavDropdown.Item>
             </NavDropdown>
+
             <Nav.Link href="/pengaturanguru">Pengaturan Akun</Nav.Link>
           </Nav>
           <Navbar.Text>
             <img className='loguser2' src={logo11}/>
-            <a>NUPTK : </a><a className='nuptk'>43758394989</a> 
             Halo, <a className='fw-bold' href="/pengaturanguru">Yukicchi</a> 
           <Button className='logout4' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
           <Modal show={show} onHide={handleClose}>

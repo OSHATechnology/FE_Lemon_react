@@ -17,6 +17,8 @@ import DasboardGuru from './pages/Guru/DasboardGuru/DasboardGuru';
 import PengaturanGuru from './pages/Guru/PengaturanGuru/PengaturanGuru';
 import MenuKalender from './pages/Guru/MenuKalender/MenuKalender';
 import MateriGuru from './pages/Guru/MateriGuru/MateriGuru';
+import Erapor from './pages/Guru/Erapor/Erapor';
+import PengaturanSiswa from './pages/Siswa/PengaturanSiswa/PengaturanSiswa';
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
       <Route path='/pengaturanguru' element={<PengaturanGuru/>}/>
       <Route path='/kalenderguru' element={<MenuKalender/>}/>
       <Route path='/materiguru' element={<MateriGuru/>}/>
+      <Route path='/erapor' element={<Erapor/>}/>
+      <Route path='/pengaturansiswa' element={<PengaturanSiswa/>}/>
       </Routes></>
   );
 }

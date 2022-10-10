@@ -1,17 +1,16 @@
 import React from 'react'
-import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
+import NavBarSiswa from '../../../components/NavBarSiswa/NavBarSiswa';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import './PengaturanGuru.css';
 
-
-const PengaturanGuru = () => {
+const PengaturanSiswa = () => {
   return (
-    <div><NavBarGuru/>
-    <h5><div className='labeldasb fw-bold'>Pengaturan Akun</div></h5>
+    <div><NavBarSiswa/>
+     <h5><div className='labeldasb fw-bold'>Pengaturan Akun Siswa</div></h5>
+    
     <Container className='card1'>
     <Card>
       <Card.Header>
@@ -32,7 +31,7 @@ const PengaturanGuru = () => {
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>NUPTK</Form.Label>
+        <Form.Label>NISN</Form.Label>
         <Form.Control type="email" />
         <Form.Text className="text-muted">
         </Form.Text>
@@ -54,12 +53,25 @@ const PengaturanGuru = () => {
           </Form.Select>
         </Form.Group>
 
+      <Form.Group className="mb-3">
+          <Form.Label htmlFor="disabledSelect">Jenjang Sekolah</Form.Label>
+          <Form.Select id="agama">
+            <option>- Silahkan Pilih -</option>
+            <option>SD</option>
+            <option>SMP</option>
+            <option>SMA</option>
+          </Form.Select>
+        </Form.Group>
+        <button type="submit" className='btn btn-primary btn-sm'>
+          Save
+        </button>
       </Form>
       </Card.Body>
     </Card>
     </Container>
+    
     </div>
   )
 }
 
-export default PengaturanGuru
+export default PengaturanSiswa

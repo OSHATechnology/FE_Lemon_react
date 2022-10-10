@@ -28,7 +28,7 @@ const LoginGuru = () => {
 
             <div className="d-flex flex-row align-items-center mb-4">
               <MDBIcon fas icon="user me-3" size='lg'/>
-              <MDBInput label='NISN' id='form1' type='text' className='w-100 mg1'/>
+              <MDBInput label='NUPTK' id='form1' type='text' className='w-100 mg1'/>
             </div>
 
             <div className="d-flex flex-row align-items-center mb-4">

@@ -42,11 +42,10 @@ function NavBarSiswa() {
                 Kalender Akademik
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/PengaturanSiswa">Pengaturan Akun</Nav.Link>
+            <Nav.Link href="/pengaturansiswa">Pengaturan Akun</Nav.Link>
           </Nav>
           <Navbar.Text>
             <img className='loguser' src={logo11}/>
-            <a>NISN : </a><a className='nuptk'>43758394989</a> 
             Halo, <a className='fw-bold' href="/pengaturanSiswa">YuuRei</a> 
           <Button className='logout2' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
           <Modal show={show} onHide={handleClose}>

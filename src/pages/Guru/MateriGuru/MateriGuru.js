@@ -65,6 +65,20 @@ function MateriGuru() {
     }
   }
 
+ const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+  };
+
+
+
   return (
     <div><NavBarGuru/>
     <h5><div className='MATERIDANTUGAS fw-bold'>MATERI DAN TUGAS SISWA</div></h5>

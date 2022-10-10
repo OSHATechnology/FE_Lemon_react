@@ -8,6 +8,8 @@ import './NavigationBar.css';
 import logo from '../../img/OSHA.png';
 import logo2 from '../../img/Technology.png';
 import logo3 from '../../img/Lemon.png';
+import axios from "axios";
+import { useState, useEffect } from 'react';
 
 const NavigationBar = () => {
   return (
