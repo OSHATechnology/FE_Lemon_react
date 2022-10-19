@@ -20,6 +20,7 @@ import MateriGuru from './pages/Guru/MateriGuru/MateriGuru';
 import Erapor from './pages/Guru/Erapor/Erapor';
 import PengaturanSiswa from './pages/Siswa/PengaturanSiswa/PengaturanSiswa';
 import axios from 'axios';
+import DaftarSiswa from './pages/Guru/DataSiswa/DaftarSiswa';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -27,6 +28,7 @@ function App() {
   // axios.defaults.headers.post['Accept'] = 'application/json';
   // axios.defaults.withCredentials = true;
   return (
+    
     <>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -46,7 +48,10 @@ function App() {
         <Route path='/materiguru' element={<MateriGuru />} />
         <Route path='/erapor' element={<Erapor />} />
         <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
+        <Route path='/daftarsiswa' element={<DaftarSiswa />} />
       </Routes></>
+
+      
   );
 }
 
