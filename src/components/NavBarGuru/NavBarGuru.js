@@ -37,7 +37,7 @@ function NavBarGuru() {
               <NavDropdown.Item href="/materiguru">Materi Dan Tugas Siswa</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Akademik" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Jurnal</NavDropdown.Item>
+              <NavDropdown.Item href="/daftarsiswa">Data Siswa</NavDropdown.Item>
               <NavDropdown.Item href="/erapor">E-Rapot</NavDropdown.Item>
               <NavDropdown.Item href="/kalenderguru">Kalender Akademik</NavDropdown.Item>
             </NavDropdown>
