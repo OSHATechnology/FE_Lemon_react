@@ -36,18 +36,17 @@ class DaftarSiswa extends Component {
             siswas_HTML_TABLE =
                 this.state.siswas.map((siswas) => {
                     return (
-                        <tr key={siswas.id}>
+                        <tr key={siswas.idSiswa}>
                             <td>{siswas.idSiswa}</td>
                             <td>{siswas.nama}</td>
                             <td>{siswas.nisn}</td>
-                            <td>{siswas.alamat}</td>
                             <td>{siswas.email}</td>
                             <td>{siswas.tgl_lahir}</td>
                             <td>{siswas.jns_kelamin}</td>
                             <td>{siswas.agama}</td>
                             <td>{siswas.telepon}</td>
                             <td>
-                                <Link to={'edit-siswas/${siswa_idSiswas'} className="btn btn-success btn-sm">Edit</Link>
+                                <Link to={`edit-siswa/${siswas.idSiswa}`} className="btn btn-success btn-sm">Edit</Link>
                             </td>
                             
                         </tr>
@@ -58,14 +57,14 @@ class DaftarSiswa extends Component {
         return (
             <div><NavBarGuru />
             <SearchBar/>
-            <h5><div className='fw-bold'>Data Siswa</div></h5>
-        <Table striped bordered hover size='sm'>
+            <h5><div className='labeldas fw-bold'>DATA SISWA</div></h5>
+            <Container>
+        <Table striped bordered hover size='sm' className='text-center'>
       <thead>
         <tr>
-        <th>#</th>
+        <th>No</th>
         <th>Nama</th>
         <th>Nisn</th>
-        <th>Alamat</th>
         <th>Email</th>
         <th>Tanggal Lahir</th>
         <th>Jenis Kelamin</th>
@@ -78,6 +77,7 @@ class DaftarSiswa extends Component {
         {siswas_HTML_TABLE}
       </tbody>
       </Table>
+      </Container>
     </div>   
 
         )

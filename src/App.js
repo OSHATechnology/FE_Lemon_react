@@ -21,6 +21,7 @@ import Erapor from './pages/Guru/Erapor/Erapor';
 import PengaturanSiswa from './pages/Siswa/PengaturanSiswa/PengaturanSiswa';
 import axios from 'axios';
 import DaftarSiswa from './pages/Guru/DataSiswa/DaftarSiswa';
+import EditSiswa from './pages/Guru/DataSiswa/EditSiswa';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -49,6 +50,7 @@ function App() {
         <Route path='/erapor' element={<Erapor />} />
         <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
         <Route path='/daftarsiswa' element={<DaftarSiswa />} />
+        <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
       </Routes></>
 
       

@@ -31,7 +31,7 @@ const Register = () => {
     email: '',
     password: '',
     nama_ayah: '', //dummy
-    nama_ibu: '', //dummy
+    nama_ibu: '', //dummyz
     tempat: '', //dummy
     tgl_lahir: '', //dummy
     jns_kelamin: '', //dummy
