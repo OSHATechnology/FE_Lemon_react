@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
@@ -8,9 +8,9 @@ import Nav from 'react-bootstrap/Nav';
 
 
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
+import withRouter from '../../../withRouter';
 
-class EditSiswa extends Component
-{
+class EditSiswa extends Component {
     state = {
         nama: '',
         nisn: '',
@@ -29,30 +29,30 @@ class EditSiswa extends Component
 
     handleInput = (e) => {
         this.setState({
-        [e.target.name]: e.target.value
-    });
+            [e.target.name]: e.target.value
+        });
 
     }
 
     async componentDidMount() {
-        const id_siswa = this.props.match.params.id;
-        //console.log(id_siswa);
+        const id_siswa = this.props.params.id;
         const res = await axios.get(`api/auth/edit-siswa/${id_siswa}`);
-        if(res.data.status === 200) {
+        if (res.status === 200) {
+            const data = res.data.data;
             this.setState({
-                nama: res.data.siswas.nama,
-                nisn: res.data.siswas.nisn,
-                alamat: res.data.siswas.alamat,
-                email: res.data.siswa.email,
-                password: res.data.siswa.password,
-                nama_ayah: res.data.siswa.nama_ayah,
-                nama_ibu: res.data.siswa.nama_ibu,
-                tempat: res.data.siswa.tempat,
-                tgl_lahir: res.data.siswa.tgl_lahir,
-                jns_kelamin: res.data.siswa.jns_kelamin,
-                agama: res.data.siswa.agama,
-                telepon: res.data.siswa.telepon,
-                kd_pos: res.data.siswa.kd_pos,
+                nama: data.nama,
+                nisn: data.nisn,
+                alamat: data.alamat,
+                email: data.email,
+                password: data.password,
+                nama_ayah: data.nama_ayah,
+                nama_ibu: data.nama_ibu,
+                tempat: data.tempat,
+                tgl_lahir: data.tgl_lahir,
+                jns_kelamin: data.jns_kelamin,
+                agama: data.agama,
+                telepon: data.telepon,
+                kd_pos: data.kd_pos,
             });
         }
     }
@@ -64,11 +64,10 @@ class EditSiswa extends Component
 
         document.getElementById('updatebtn').disabled = true;
         document.getElementById('updatebtn').innerText = "updating";
-        const id_siswa = this.props.match.params.id;    
+        const id_siswa = this.props.match.params.id;
         const res = await axios.put(`api/auth/update-siswa/${id_siswa}`, this.state);
 
-        if(res.data.status === 200)
-        {
+        if (res.data.status === 200) {
             console.log(res.data.massage);
             document.getElementById('updatebtn').disabled = false;
             document.getElementById('updatebtn').innerText = "updateing";
@@ -77,34 +76,34 @@ class EditSiswa extends Component
 
     render() {
         return (
-            <div><NavBarGuru/>
-            <h5><div className='labeldasb fw-bold'>Pengaturan Akun</div></h5>
-    <Container className='card1'>
-    <Card>
-      <Card.Header>Edit Data Siswa
-      </Card.Header>
-      <Card.Body>
-        <form onSubmit={this.updatesiswa}>
+            <div><NavBarGuru />
+                <h5><div className='labeldasb fw-bold'>Pengaturan Akun</div></h5>
+                <Container className='card1'>
+                    <Card>
+                        <Card.Header>Edit Data Siswa
+                        </Card.Header>
+                        <Card.Body>
+                            <form onSubmit={this.updatesiswa}>
 
-            <div className='form-group mb-3' controlId="formBasicEmail">
-                <label>Nama</label>
-                <input type="text" name='nama' onChange={this.handleInput} value={this.state.nama} className="form" />
-            </div>
-            <div className='form-group mb-3'>
-                <label>NISN</label>
-                <input type="text" name='nama' onChange={this.handleInput} value={this.state.nisn} className="form" />
-            </div>
-            <div className='form-group mb-3'>
-                <label>Alamat</label>
-                <input type="text" name='nama' onChange={this.handleInput} value={this.state.alamat} className="form" />
-            </div>
-        </form>
-      </Card.Body>
-    </Card>
-    </Container></div>
+                                <div className='form-group mb-3'>
+                                    <label>Nama</label>
+                                    <input type="text" name='nama' onChange={this.handleInput} value={this.state.nama} className="form" />
+                                </div>
+                                <div className='form-group mb-3'>
+                                    <label>NISN</label>
+                                    <input type="text" name='nama' onChange={this.handleInput} value={this.state.nisn} className="form" />
+                                </div>
+                                <div className='form-group mb-3'>
+                                    <label>Alamat</label>
+                                    <input type="text" name='nama' onChange={this.handleInput} value={this.state.alamat} className="form" />
+                                </div>
+                            </form>
+                        </Card.Body>
+                    </Card>
+                </Container></div>
 
         );
     }
 }
 
-export default EditSiswa;
+export default withRouter(EditSiswa);

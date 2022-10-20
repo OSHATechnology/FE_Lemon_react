@@ -29,7 +29,7 @@ function App() {
   // axios.defaults.headers.post['Accept'] = 'application/json';
   // axios.defaults.withCredentials = true;
   return (
-    
+
     <>
       <Routes>
         <Route path='/' element={<Home />} />
@@ -53,7 +53,7 @@ function App() {
         <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
       </Routes></>
 
-      
+
   );
 }
 
