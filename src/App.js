@@ -22,6 +22,7 @@ import PengaturanSiswa from './pages/Siswa/PengaturanSiswa/PengaturanSiswa';
 import axios from 'axios';
 import DaftarSiswa from './pages/Guru/DataSiswa/DaftarSiswa';
 import EditSiswa from './pages/Guru/DataSiswa/EditSiswa';
+import DetailSiswa from './pages/Guru/DataSiswa/DetailSiswa';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -51,6 +52,7 @@ function App() {
         <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
         <Route path='/daftarsiswa' element={<DaftarSiswa />} />
         <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
+        <Route path='/daftarsiswa/detailsiswa/:id' element={<DetailSiswa />} />
       </Routes></>
 
 

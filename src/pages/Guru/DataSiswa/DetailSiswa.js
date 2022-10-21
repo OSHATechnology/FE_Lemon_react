@@ -5,13 +5,12 @@ import { Button, Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
-import swal from 'sweetalert';
 
 
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 import withRouter from '../../../withRouter';
 
-class EditSiswa extends Component {
+class DetailSiswa extends Component {
     state = {
         nama: '',
         nisn: '',
@@ -36,8 +35,8 @@ class EditSiswa extends Component {
     }
 
     async componentDidMount() {
-        const idSiswa = this.props.params.id;
-        const res = await axios.get(`api/auth/edit-siswa/${idSiswa}`);
+        const id_siswa = this.props.params.id;
+        const res = await axios.get(`api/auth/edit-siswa/${id_siswa}`);
         if (res.status === 200) {
             const data = res.data.data;
             this.setState({
@@ -62,20 +61,14 @@ class EditSiswa extends Component {
     updatesiswa = async (e) => {
         e.preventDefault();
 
-        document.getElementById('updatebtn').setAttribute("disabled","disabled");
+        document.getElementById('updatebtn').disabled = true;
         document.getElementById('updatebtn').innerText = "updating";
-        const idSiswa = this.props.params.id;
-        const res = await axios.put(`api/auth/update-siswa/${idSiswa}`, this.state);
+        const id_siswa = this.props.params.id;
+        const res = await axios.put(`api/auth/update-siswa/${id_siswa}`, this.state);
 
-        if (res.status === 200) 
-        {
-            swal({
-                title: "Good job!",
-                text: res.message,
-                icon: "success",
-                button: "Ok!",
-              });
-            document.getElementById('updatebtn').removeAttribute("disabled");
+        if (res.data.status === 200) {
+            console.log(res.data.massage);
+            document.getElementById('updatebtn').disabled = false;
             document.getElementById('updatebtn').innerText = "updating";
         }
     }
@@ -86,7 +79,7 @@ class EditSiswa extends Component {
                 <h5><div className='labeldasb fw-bold'>Pengaturan Akun</div></h5>
                 <Container className='card1'>
                     <Card>
-                        <Card.Header>Ubah Data Siswa
+                        <Card.Header>Detail Data Siswa
                             <Link to={'/daftarsiswa'} className="btn btn-primary btn-sm float-end">Kembali</Link>
                         </Card.Header>
                         <Card.Body>
@@ -94,7 +87,7 @@ class EditSiswa extends Component {
                         
                         <Form.Group className="mb-3">
                         <Form.Label>Nama Lengkap</Form.Label>
-                        <Form.Control type="text" name='nama' onChange={this.handleInput} value={this.state.nama} className="form" />
+                        <Form.Control type="text" name='nama' onChange={this.handleInput} value={this.state.nama} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3" >
@@ -104,38 +97,38 @@ class EditSiswa extends Component {
 
                         <Form.Group className="mb-3">
                         <Form.Label>Alamat</Form.Label>
-                        <Form.Control type="text" name='alamat' onChange={this.handleInput} value={this.state.alamat} className="form" />
+                        <Form.Control type="text" name='alamat' onChange={this.handleInput} value={this.state.alamat} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" name='email' onChange={this.handleInput} value={this.state.email} className="form" />
+                        <Form.Control type="email" name='email' onChange={this.handleInput} value={this.state.email} className="form" disabled/>
                         </Form.Group>
 
 
                         <Form.Group className="mb-3">
                         <Form.Label>Nama Ayah</Form.Label>
-                        <Form.Control type="text" name='nama_ayah' onChange={this.handleInput} value={this.state.nama_ayah} className="form" />
+                        <Form.Control type="text" name='nama_ayah' onChange={this.handleInput} value={this.state.nama_ayah} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Nama Ibu</Form.Label>
-                        <Form.Control type="text" name='nama_ibu' onChange={this.handleInput} value={this.state.nama_ibu} className="form" />
+                        <Form.Control type="text" name='nama_ibu' onChange={this.handleInput} value={this.state.nama_ibu} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Tempat Lahir</Form.Label>
-                        <Form.Control type="text" name='tempat' onChange={this.handleInput} value={this.state.tempat} className="form" />
+                        <Form.Control type="text" name='tempat' onChange={this.handleInput} value={this.state.tempat} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Tanggal Lahir</Form.Label>
-                        <Form.Control type="date" name='tgl_lahir' onChange={this.handleInput} value={this.state.tgl_lahir} className="form" />
+                        <Form.Control type="date" name='tgl_lahir' onChange={this.handleInput} value={this.state.tgl_lahir} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Jenis Kelamin</Form.Label>
-                        <Form.Select type="select" name='jns_kelamin' onChange={this.handleInput} value={this.state.jns_kelamin} className="form" >
+                        <Form.Select type="select" name='jns_kelamin' onChange={this.handleInput} value={this.state.jns_kelamin} className="form" disabled>
                         <option disabled selected>- Silahkan Pilih -</option>
                         <option>Laki-Laki</option>
                         <option>perempuan</option>
@@ -145,7 +138,7 @@ class EditSiswa extends Component {
 
                         <Form.Group className="mb-3">
                         <Form.Label>Agama</Form.Label>
-                        <Form.Select type="select" name='agama' onChange={this.handleInput} value={this.state.agama} className="form">
+                        <Form.Select type="select" name='agama' onChange={this.handleInput} value={this.state.agama} className="form"disabled>
                         <option disabled selected>- Silahkan Pilih -</option>
                         <option>Islam</option>
                         <option>Protestan</option>
@@ -158,19 +151,13 @@ class EditSiswa extends Component {
 
                         <Form.Group className="mb-3">
                         <Form.Label>Telepon</Form.Label>
-                        <Form.Control type="number" name='telepon' onChange={this.handleInput} value={this.state.telepon} className="form" />
+                        <Form.Control type="number" name='telepon' onChange={this.handleInput} value={this.state.telepon} className="form" disabled/>
                         </Form.Group>
 
                         <Form.Group className="mb-3">
                         <Form.Label>Kode Pos</Form.Label>
-                        <Form.Control type="number" name='kd_pos' onChange={this.handleInput} value={this.state.kd_pos} className="form" />
+                        <Form.Control type="number" name='kd_pos' onChange={this.handleInput} value={this.state.kd_pos} className="form"disabled />
                         </Form.Group>
-
-                        <div className='form-group mb-3'>
-                        <Button type="submit" id="updatebtn" className="btn btn-primary">Update Data</Button>
-                        </div>
-
-                        
                             
                             </Form>
                         </Card.Body>
@@ -181,4 +168,4 @@ class EditSiswa extends Component {
     }
 }
 
-export default withRouter(EditSiswa);
+export default withRouter(DetailSiswa);

@@ -131,7 +131,7 @@ const Register = () => {
           <Form.Select label='Jenis Kelamin' onChange={(e) => setDataRegister({ ...dataRegister, jns_kelamin: e.target.value })} id='inputKelamin' type='select' className='w-100 mg1' >
             <option disabled selected>- Silahkan Pilih -</option>
             <option>Laki-Laki</option>
-            <option>Wanita</option>
+            <option>perempuan</option>
             <option>Lainnya</option>
           </Form.Select>
         </Form.Group>

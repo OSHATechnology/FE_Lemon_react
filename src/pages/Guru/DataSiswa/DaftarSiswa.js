@@ -8,6 +8,7 @@ import SearchBar from '../../../components/SearchBar/Searchbar';
 import Card from 'react-bootstrap/Card';
 import Nav from 'react-bootstrap/Nav';
 import { Container } from 'react-bootstrap';
+import swal from 'sweetalert';
 
 class DaftarSiswa extends Component {
 
@@ -26,6 +27,26 @@ class DaftarSiswa extends Component {
         }
     }
 
+    deleteSiswa = async (e, idSiswa) => {
+
+        const thidClickedFunda = e.currentTarget;
+        thidClickedFunda.innerText = "Deleting";
+
+        const res = await axios.delete(`/api/auth/hapus-siswa/${idSiswa}`);
+        
+        if (res.status === 200) 
+        {
+            thidClickedFunda.closest("siswas").remove();
+             // console.log(res.message);
+            swal({
+                title: "Good job!",
+                text: res.massage,
+                icon: "success",
+                button: "Ok!",
+              });
+        }
+    }
+
     render() {
 
         var siswas_HTML_TABLE = "";
@@ -37,7 +58,6 @@ class DaftarSiswa extends Component {
                 this.state.siswas.map((siswas) => {
                     return (
                         <tr key={siswas.idSiswa}>
-                            <td>{siswas.idSiswa}</td>
                             <td>{siswas.nama}</td>
                             <td>{siswas.nisn}</td>
                             <td>{siswas.email}</td>
@@ -46,7 +66,9 @@ class DaftarSiswa extends Component {
                             <td>{siswas.agama}</td>
                             <td>{siswas.telepon}</td>
                             <td>
-                                <Link to={`edit-siswa/${siswas.idSiswa}`} className="btn btn-success btn-sm">Edit</Link>
+                                <Link to={`detailsiswa/${siswas.idSiswa}`} className="btn btn-primary btn-sm buttonrd1">Detail</Link>
+                                <Link to={`edit-siswa/${siswas.idSiswa}`} className="btn btn-success btn-sm buttonrd1">Edit</Link>
+                                <button type='button' onClick={(e) => this.deleteSiswa(e, siswas.idSiswa)} className='btn btn-danger btn-sm'>Hapus</button>
                             </td>
                             
                         </tr>
@@ -62,7 +84,6 @@ class DaftarSiswa extends Component {
         <Table striped bordered hover size='sm' className='text-center'>
       <thead>
         <tr>
-        <th>No</th>
         <th>Nama</th>
         <th>Nisn</th>
         <th>Email</th>
