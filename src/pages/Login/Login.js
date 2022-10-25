@@ -1,9 +1,8 @@
-import React from 'react'
-import { Container,Col,Row } from 'react-bootstrap'
-import NavigationBar from '../../components/NavigationBar/NavigationBar'
-import logo from '../../img/Lemon.png'
-import logo2 from '../../img/sekolah.jpg'
-import './Login.css'
+import axios from "axios";
+import react, {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import NavBarSiswa from "../../components/NavBarSiswa/NavBarSiswa";
+import NavigationBar from "../../components/NavigationBar/NavigationBar";
 import {
   MDBBtn,
   MDBContainer,
@@ -15,12 +14,41 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
-import Button from 'react-bootstrap/Button';
+import logo from '../../img/Lemon.png'
 
 
+function Login(){
 
-const Login = () => {
-  return (
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [validation, setValidation] = useState([]);
+
+  const navigate = useNavigate();
+
+  const loginHandler = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+
+    formData.append('email',email);
+    formData.append('password',password);
+
+    await axios.post('/api/auth/login', formData)
+    .then((response) => {
+
+      console.log(response.data.token);
+      localStorage.setItem('token',response.data.token);
+
+      navigate('/dasboardsiswa');
+
+    }).catch((error) => {
+      console.log(error.response.data);
+      setValidation(error.response.data);
+    })
+  }
+
+  return(
     <div>
     <NavigationBar/>
     <MDBContainer fluid>
@@ -29,37 +57,50 @@ const Login = () => {
 
             <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-4">LOGIN SISWA</p>
             <p className="text-center h7 mb-4">Selamat datang di E-learning Lemon para siswa</p>
-
+                  {
+                    validation.error && (
+                      <div className="alert alert-danger" role="alert">
+                       { validation.error }
+                        </div>
+                    )
+                  }
+            <form onSubmit={loginHandler}>
             <div className="d-flex flex-row align-items-center mb-4">
-              <MDBIcon fas icon="user me-3" size='lg'/>
-              <MDBInput label='NISN' id='form1' type='text' className='w-100 mg1'/>
+              <MDBInput label="Alamat Email" type="text" className="w-100 mg1 form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
+              {
+                validation.email && (
+                <small className="text-danger">
+                   { validation.email[0] }
+              </small>
+              )
+              }
             </div>
 
-            <div className="d-flex flex-row align-items-center mb-4">
-              <MDBIcon fas icon="lock me-3" size='lg'/>
-              <MDBInput label='Password' id='form3' type='password' className='mg1'/>
-            </div>
-
-            <div className='mb-3'>
-              <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember Me' />
-            </div>
-
-            <a className='' href="/register" style={{color: 'darkgray'}} >Belum memiliki akun? Daftar disini</a>
-            <a className='mb-5' href="\" style={{color: 'darkgray'}} >Anda seorang Guru? Login disini</a>
-
-            <Button className='mx-2' href='/dasboardsiswa' variant='warning' style={{color: 'white'}} size='lg'>Login</Button>
-
-          </MDBCol>
-
-          <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
+                    <div className="mb-3">
+                      <label htmlFor="password" className="form-label">Kata Sandi</label>
+                      <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
+                      {
+                        validation.password && (
+                          <small className="text-danger">
+                            { validation.password[0] }
+                          </small>
+                        )
+                      }
+                    </div>
+                    <button className="btn btn-warning" type="submit">Login</button>
+                  </form>
+      
+ </MDBCol>
+ <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
             <MDBCardImage src={logo} fluid className='mt-4 md2'/>
           </MDBCol>
 
         </MDBRow>
 
-  </MDBContainer>
-  </div>
+</MDBContainer>
+    </div>
   )
 }
-
 export default Login
+
+  

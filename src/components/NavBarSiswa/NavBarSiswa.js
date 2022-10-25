@@ -10,11 +10,47 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Jam from '../Jam/Jam';
 import Modal from 'react-bootstrap/Modal';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tanggal from '../Jam/Tanggal';
+import userEvent from '@testing-library/user-event';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function NavBarSiswa() {
+
+  const [user, setUser] = useState({});
+
+  const navigate = useNavigate();
+
+  const token = localStorage.getItem("token");
+
+  const fetchData = async () => {
+    axios.defaults.headers.common['Authorzation'] = `Bearer ${token}`
+    await axios.post('/api/auth/me')
+    .then((response) => {
+      setUser(response.data);
+    })
+  }
+
+  useEffect(() => {
+    if(!token){
+      navigate('login');
+    }
+
+    fetchData();
+  },[]);
+
+  const logoutHandler = async () => {
+    axios.defaults.headers.common['Authorization'] = `bearer ${token}`
+    await axios.post('/auth/logout')
+    .then(() => {
+      localStorage.removeItem("token");
+
+      navigate('/login');
+    })
+  }
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -46,7 +82,7 @@ function NavBarSiswa() {
           </Nav>
           <Navbar.Text>
             <img className='loguser' src={logo11}/>
-            Halo, <a className='fw-bold' href="/pengaturanSiswa">YuuRei</a> 
+            Halo, <a className='fw-bold' href="/pengaturanSiswa">{user.nama}</a> 
           <Button className='logout2' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
           <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -57,7 +93,7 @@ function NavBarSiswa() {
           <Button variant="secondary" onClick={handleClose}>
             Tidak
           </Button>
-          <Button variant="danger" href="/home">
+          <Button variant="danger" onClick={logoutHandler}>
             Logout
           </Button>
         </Modal.Footer>

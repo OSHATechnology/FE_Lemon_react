@@ -70,7 +70,7 @@ class EditSiswa extends Component {
         if (res.status === 200) 
         {
             swal({
-                title: "Good job!",
+                title: "Data Telah Ter-update!",
                 text: res.message,
                 icon: "success",
                 button: "Ok!",
