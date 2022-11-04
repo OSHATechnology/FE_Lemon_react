@@ -26,8 +26,8 @@ function NavBarSiswa() {
   const token = localStorage.getItem("token");
 
   const fetchData = async () => {
-    axios.defaults.headers.common['Authorzation'] = `Bearer ${token}`
-    await axios.post('/api/auth/me')
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    await axios.post('http://127.0.0.1:8000/api/auth/me')
     .then((response) => {
       setUser(response.data);
     })
@@ -35,7 +35,7 @@ function NavBarSiswa() {
 
   useEffect(() => {
     if(!token){
-      navigate('login');
+      navigate('/login');
     }
 
     fetchData();
@@ -43,7 +43,7 @@ function NavBarSiswa() {
 
   const logoutHandler = async () => {
     axios.defaults.headers.common['Authorization'] = `bearer ${token}`
-    await axios.post('/auth/logout')
+    await axios.post('http://127.0.0.1:8000/api/auth/logout')
     .then(() => {
       localStorage.removeItem("token");
 

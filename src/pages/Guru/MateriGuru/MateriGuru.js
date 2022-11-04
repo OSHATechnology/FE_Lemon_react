@@ -138,31 +138,7 @@ function MateriGuru() {
       <h6><div className='fw-bold'>Upload Materi</div></h6>
     <div className='container'>
     <br></br>
-    
-      <form className='form-group' onSubmit={handlePdfFileSubmit}>
-        <input type="file" className='form-control'
-          required onChange={handlePdfFileChange}/>
-        {pdfFileError&&<div className='error-msg'>{pdfFileError}</div>}
-        <br></br>
-        <button type="submit" className='btn btn-success btn-sm'>
-          Tampilkan
-        </button>
-      </form>
-      <br></br>
-      <h4>View PDF</h4>
-      <div className='pdf-container'>
-        {/* show pdf conditionally (if we have one)  */}
-        {viewPdf&&<><Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js">
-          <Viewer fileUrl={viewPdf}
-            plugins={[defaultLayoutPluginInstance]} />
-      </Worker></>}
-
-      {/* if we dont have pdf or viewPdf state is null */}
-      {!viewPdf&&<>No pdf file selected</>}
-      </div>
-      </div>
-
-
+    </div>
             </Tab.Pane>
             <Tab.Pane eventKey="second">
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import react, {useState} from "react";
+import react, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import NavBarSiswa from "../../components/NavBarSiswa/NavBarSiswa";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
@@ -26,6 +26,12 @@ function Login(){
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      navigate('/home');
+    }
+  },[]);
+
   const loginHandler = async (e) => {
     e.preventDefault();
 
@@ -37,8 +43,8 @@ function Login(){
     await axios.post('/api/auth/login', formData)
     .then((response) => {
 
-      console.log(response.data.token);
-      localStorage.setItem('token',response.data.token);
+      console.log(response.data.access_token);
+      localStorage.setItem('token',response.data.access_token);
 
       navigate('/dasboardsiswa');
 
@@ -51,7 +57,7 @@ function Login(){
   return(
     <div>
     <NavigationBar/>
-    <MDBContainer fluid>
+    <MDBContainer fluid mt='5'>
         <MDBRow>
           <MDBCol md='3' lg='5' className='order-2 order-lg-1 d-flex flex-column align-items-center col1'>
 
