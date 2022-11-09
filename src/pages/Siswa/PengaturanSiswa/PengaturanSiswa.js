@@ -51,88 +51,89 @@ const PengaturanSiswa = () => {
         <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail" >
         <Form.Label>Nama Lengkap</Form.Label>
-        <Form.Control name='nama'className='form' value={user.nama} />
+        <Form.Control name='nama'className='form' value={user.nama} disabled />
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>NISN</Form.Label>
-        <Form.Control type="email" value={user.nisn} />
+        <Form.Control type="email" value={user.nisn} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Alamat Rumah</Form.Label>
-        <Form.Control type="email" value={user.alamat}/>
+        <Form.Control type="email" value={user.alamat} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Kode Pos</Form.Label>
-        <Form.Control type="email" value={user.kd_pos}/>
+        <Form.Control type="email" value={user.kd_pos} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" value={user.email}/>
+        <Form.Control type="email" value={user.email} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Nama Ayah</Form.Label>
-        <Form.Control type="email" value={user.nama_ayah}/>
+        <Form.Control type="email" value={user.nama_ayah} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Nama Ibu</Form.Label>
-        <Form.Control type="email" value={user.nama_ibu}/>
+        <Form.Control type="email" value={user.nama_ibu} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Tempat Lahir</Form.Label>
-        <Form.Control type="email" value={user.tempat}/>
+        <Form.Control type="email" value={user.tempat} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Tanggal Lahir</Form.Label>
-        <Form.Control type="email" value={user.tgl_lahir}/>
+        <Form.Control type="email" value={user.tgl_lahir} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Jenis Kelamin</Form.Label>
-        <Form.Control type="email" value={user.jns_kelamin}/>
+        <Form.Control type="email" value={user.jns_kelamin} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Agama</Form.Label>
-        <Form.Control type="email" value={user.agama}/>
+        <Form.Control type="email" value={user.agama} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Nomor Telepon</Form.Label>
-        <Form.Control type="email" value={user.telepon}/>
+        <Form.Control type="email" value={user.telepon} disabled/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
-
-      <h5>Silahkan Hubungi Wali Kelas Untuk Penggantian Data Diri</h5>
+      <div class="card-footer">
+                    <small id="password" class="form-text text-muted">Jika data diatas masih belum sesuai, silahkan hubungi Wali Kelas</small>
+                </div>
       </Form>
       </Card.Body>
     </Card>

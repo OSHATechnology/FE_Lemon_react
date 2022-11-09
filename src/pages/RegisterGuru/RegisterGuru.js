@@ -14,7 +14,7 @@ import {
   from 'mdb-react-ui-kit';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import { Container, FormSelect } from 'react-bootstrap';
-import './Register.css';
+import './RegisterGuru.css';
 import logo from '../../img/Lemon.png'
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
@@ -22,18 +22,14 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Swal from 'sweetalert2'
-import {useNavigate} from 'react-router-dom';
 
-const Register = () => {
+const RegisterGuru = () => {
   const [dataRegister, setDataRegister] = useState({
     nama: '',
-    nisn: '',
+    nip: '',
     alamat: '',
     email: '',
     password: '',
-    nama_ayah: '', //dummy
-    nama_ibu: '', //dummyz
     tempat: '', //dummy
     tgl_lahir: '', //dummy
     jns_kelamin: '', //dummy
@@ -44,25 +40,11 @@ const Register = () => {
 
   const [cek,setCek] = useState(false)
 
-  const navigate = useNavigate()
-
   const handleRegister = () => {
     if(cek===true){
         console.log(dataRegister);
-        const resp = axios.post('/api/auth/register', dataRegister);
+        const resp = axios.post('/api/auth/register-guru', dataRegister);
         resp.then((response) => {
-          let timerInterval
-          Swal.fire({
-            title: 'Register Berhasil!',
-            icon: 'success',
-            timer: 2000,
-            timerProgressBar: true,
-            willClose: () => {
-              clearInterval(timerInterval)
-            }
-          }).then((result) => {
-            navigate('/login')
-          })
           console.log(response);
         }).catch((error) => {
           console.log(error);
@@ -72,7 +54,6 @@ const Register = () => {
     }
     
   }
-
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -87,7 +68,7 @@ const Register = () => {
           <MDBCol md='3' lg='5' className='order-2 order-lg-1 d-flex flex-column align-items-center mt-5'>
 
             <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-4">Registrasi</p>
-            <p className="text-center h7 mb-4">Silahkan isi form dibawah ini untuk registrasi</p>
+            <p className="text-center h7 mb-4">Silahkan isi form dibawah ini untuk registrasi Pengajar</p>
       
 
 
@@ -98,8 +79,8 @@ const Register = () => {
       </Form.Group>
 
             <Form.Group className="mb-3">
-        <Form.Label>NISN</Form.Label>
-        <Form.Control label='NISN' onChange={(e) => setDataRegister({ ...dataRegister, nisn: e.target.value })} id='inputNisn' type='number' className='w-100 mg1' />
+        <Form.Label>NIP</Form.Label>
+        <Form.Control label='NIP' onChange={(e) => setDataRegister({ ...dataRegister, nip: e.target.value })} id='inputNIP' type='number' className='w-100 mg1' />
       </Form.Group>
 
             <Form.Group className="mb-3">
@@ -125,16 +106,6 @@ const Register = () => {
       </Row>
 
             <Form.Group className="mb-3">
-        <Form.Label>Nama Ayah</Form.Label>
-        <Form.Control label='Nama Ayah' onChange={(e) => setDataRegister({ ...dataRegister, nama_ayah: e.target.value })} id='inputAyah' type='text' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Nama Ibu</Form.Label>
-        <Form.Control label='Nama Ibu' onChange={(e) => setDataRegister({ ...dataRegister, nama_ibu: e.target.value })} id='inputIbu' type='text' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
         <Form.Label>Nomor Telepon</Form.Label>
         <Form.Control label='Nomor Telepon' onChange={(e) => setDataRegister({ ...dataRegister, telepon: e.target.value })} id='inputTelepon' type='number' className='w-100 mg1' />
       </Form.Group>
@@ -156,7 +127,6 @@ const Register = () => {
             <option disabled selected>- Silahkan Pilih -</option>
             <option>Laki-Laki</option>
             <option>perempuan</option>
-            <option>Lainnya</option>
           </Form.Select>
         </Form.Group>
 
@@ -184,7 +154,7 @@ const Register = () => {
         </Col>
         <Col xs="auto">
 
-          <Button className='mb-5' variant="warning" size='lg' onClick={handleShow}>Registrasi</Button>
+          <Button className='mb-5' variant="success" size='lg' onClick={handleShow}>Registrasi</Button>
           <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Registrasi</Modal.Title>
@@ -194,7 +164,7 @@ const Register = () => {
           <Button variant="secondary" onClick={handleClose}>
             Kembali
           </Button>
-          <Button variant="warning" onClick={handleRegister}>
+          <Button variant="success" onClick={handleRegister}>
             Lanjutkan
           </Button>
         </Modal.Footer>
@@ -218,4 +188,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterGuru

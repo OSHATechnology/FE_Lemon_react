@@ -85,7 +85,7 @@ class DetailSiswa extends Component {
                         <Card.Body>
                         <Form onSubmit={this.updatesiswa}>
                         
-                        <Form.Group className="mb-3">
+                        <Form.Group className="mb-3 sorting sorting_asc">
                         <Form.Label>Nama Lengkap</Form.Label>
                         <Form.Control type="text" name='nama' onChange={this.handleInput} value={this.state.nama} className="form" disabled/>
                         </Form.Group>

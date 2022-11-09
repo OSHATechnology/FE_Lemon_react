@@ -10,7 +10,7 @@ import Register from './pages/Register/Register';
 import ContactUs from './pages/ContactUs/ContactUs';
 import LoginGuru from './pages/LoginGuru/LoginGuru';
 import DasboardSiswa from './pages/DasboardSiswa/DasboardSiswa';
-import AbsensiSiswa from './pages/AbsensiSiswa/AbsensiSiswa';
+import AbsensiSiswa from './pages/Siswa/AbsensiSiswa/AbsensiSiswa';
 import MateriSiswa from './pages/Siswa/MateriSiswa/MateriSiswa';
 import KalenderAkademik from './pages/KalenderAkademik/KalenderAkademik';
 import DasboardGuru from './pages/Guru/DasboardGuru/DasboardGuru';
@@ -23,6 +23,12 @@ import axios from 'axios';
 import DaftarSiswa from './pages/Guru/DataSiswa/DaftarSiswa';
 import EditSiswa from './pages/Guru/DataSiswa/EditSiswa';
 import DetailSiswa from './pages/Guru/DataSiswa/DetailSiswa';
+import RegisterGuru from './pages/RegisterGuru/RegisterGuru';
+import MataPelajaran from './pages/Guru/MataPelajaran/MataPelajaran';
+import Kelas from './pages/Guru/Kelas/Kelas';
+import AbsensiGuru from './pages/Guru/AbsensiGuru/AbsensiGuru';
+import RuangDiskusiGuru from './pages/Guru/RuangDiskusiGuru/RuangDiskusiGuru';
+import BuatRuangDiskusi from './pages/Guru/RuangDiskusiGuru/BuatRuangDiskusi';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -33,26 +39,38 @@ function App() {
 
     <>
       <Routes>
+        {/*Halaman Awal */}
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/loginguru' element={<LoginGuru />} />
         <Route path='/tentang' element={<Tentang />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/register/guru' element={<RegisterGuru />} />
         <Route path='/contactus' element={<ContactUs />} />
-        <Route path='/loginguru' element={<LoginGuru />} />
+        
+        {/* Siswa */}
+        <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
         <Route path='/dasboardsiswa' element={<DasboardSiswa />} />
         <Route path='/absensisiswa' element={<AbsensiSiswa />} />
         <Route path='/materisiswa' element={<MateriSiswa />} />
         <Route path='/kalenderakademik' element={<KalenderAkademik />} />
-        <Route path='/dasboardguru' element={<DasboardGuru />} />
+        
+        
+        {/* Guru */}
+        <Route path='/guru/dasboard' element={<DasboardGuru />} />
         <Route path='/pengaturanguru' element={<PengaturanGuru />} />
         <Route path='/kalenderguru' element={<MenuKalender />} />
-        <Route path='/materiguru' element={<MateriGuru />} />
-        <Route path='/erapor' element={<Erapor />} />
-        <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
+        <Route path='/guru/materi' element={<MateriGuru />} />
+        <Route path='/guru/erapor' element={<Erapor />} />
         <Route path='/daftarsiswa' element={<DaftarSiswa />} />
         <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
         <Route path='/daftarsiswa/detailsiswa/:id' element={<DetailSiswa />} />
+        <Route path='/guru/mata-pelajaran' element={<MataPelajaran />} />
+        <Route path='/guru/kelas' element={<Kelas />} />
+        <Route path='/guru/absensi' element={<AbsensiGuru />} />
+        <Route path='/guru/ruang-diskusi' element={<RuangDiskusiGuru />} />
+        <Route path='/guru/ruang-diskusi/buat-ruang-diskusi' element={<BuatRuangDiskusi />} />
       </Routes></>
 
 
