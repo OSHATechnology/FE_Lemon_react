@@ -7,3 +7,16 @@
 .btn2 {
     margin-left: 10px;
 }
+
+.warna {
+    background-color: darkgreen !important;
+    color: aliceblue !important;
+}
+
+.warna:hover {
+    background-color:dimgray !important;
+}
+
+.bakron .nav-link.active {
+    background-color: bisque !important;
+}

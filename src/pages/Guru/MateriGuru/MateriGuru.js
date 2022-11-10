@@ -34,15 +34,15 @@ function MateriGuru() {
         <Col sm={3}>
 
 
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="flex-column bakron">
             <Nav.Item>
-              <Nav.Link eventKey="first" className='mt-3 mb-3'>Upload Materi dan Tugas</Nav.Link>
+              <Nav.Link eventKey="first" className='mt-3 mb-3 warna'>Upload Materi dan Tugas</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second" className='mt-3 mb-3'>Tugas Siswa</Nav.Link>
+              <Nav.Link eventKey="second" className='mt-3 mb-3 warna'>Tugas Siswa</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="third" className='mt-3 mb-3'>Modul Guru</Nav.Link>
+              <Nav.Link eventKey="third" className='mt-3 mb-3 warna'>Modul Guru</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
