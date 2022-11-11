@@ -10,7 +10,7 @@ import './RuangDiskusiGuru.css'
 const BuatKelasVirtual = () => {
   return (
     <div><NavBarGuru/>
-     <h5><div className='labeltambahkelas fw-bold'>BUAT KELAS VIRTUAL BARU</div></h5>
+     <h5><div className='labeltambahkelas fw-bold'>BUAT RUANG DISKUSI BARU</div></h5>
     <Container>
     <Form>
       <Row className="mb-4 mt-5 kelasV">

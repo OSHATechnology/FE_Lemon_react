@@ -23,12 +23,12 @@ function MataPelajaran() {
         <Col sm={3}>
 
 
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="flex-column bakronn">
             <Nav.Item>
-              <Nav.Link eventKey="first" className='mt-3 mb-3  color-nav'>Tambah Mata Pelajaran</Nav.Link>
+              <Nav.Link eventKey="first" className='mt-3 mb-3  warnaa2'>Tambah Mata Pelajaran</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second" className='mt-3 mb-3'>Data Mata Pelajaran</Nav.Link>
+              <Nav.Link eventKey="second" className='mt-3 mb-3 warnaa2'>Data Mata Pelajaran</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>

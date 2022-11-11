@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { Table } from 'react-bootstrap';
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru';
+import './Kelas.css'
 
 
 function Kelas() {
@@ -23,12 +24,12 @@ function Kelas() {
         <Col sm={3}>
 
 
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="flex-column bakronnn">
             <Nav.Item>
-              <Nav.Link eventKey="first" className='mt-3 mb-3'>Tambah Kelas</Nav.Link>
+              <Nav.Link eventKey="first" className='mt-3 mb-3 warnaa3'>Tambah Kelas</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second" className='mt-3 mb-3'>Data Kelas</Nav.Link>
+              <Nav.Link eventKey="second" className='mt-3 mb-3 warnaa3'>Data Kelas</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>

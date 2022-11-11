@@ -29,6 +29,8 @@ import Kelas from './pages/Guru/Kelas/Kelas';
 import AbsensiGuru from './pages/Guru/AbsensiGuru/AbsensiGuru';
 import RuangDiskusiGuru from './pages/Guru/RuangDiskusiGuru/RuangDiskusiGuru';
 import BuatRuangDiskusi from './pages/Guru/RuangDiskusiGuru/BuatRuangDiskusi';
+import DataErapor from './pages/Guru/Erapor/DataErapor';
+import RuangDiskusiSiswa from './pages/Siswa/RuangDiskusiSiswa/RuangDiskusiSiswa';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -51,10 +53,11 @@ function App() {
         
         {/* Siswa */}
         <Route path='/pengaturansiswa' element={<PengaturanSiswa />} />
-        <Route path='/dasboardsiswa' element={<DasboardSiswa />} />
+        <Route path='/siswa/dasboard' element={<DasboardSiswa />} />
         <Route path='/absensisiswa' element={<AbsensiSiswa />} />
         <Route path='/materisiswa' element={<MateriSiswa />} />
         <Route path='/kalenderakademik' element={<KalenderAkademik />} />
+        <Route path='/siswa/ruang-diskusi' element={<RuangDiskusiSiswa />} />
         
         
         {/* Guru */}
@@ -63,6 +66,7 @@ function App() {
         <Route path='/kalenderguru' element={<MenuKalender />} />
         <Route path='/guru/materi' element={<MateriGuru />} />
         <Route path='/guru/erapor' element={<Erapor />} />
+        <Route path='/guru/erapor/data' element={<DataErapor />} />
         <Route path='/daftarsiswa' element={<DaftarSiswa />} />
         <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
         <Route path='/daftarsiswa/detailsiswa/:id' element={<DetailSiswa />} />

@@ -15,7 +15,8 @@ import {
 }
 from 'mdb-react-ui-kit';
 import logo from '../../img/Lemon.png'
-
+import './Login.css'
+import { Button } from "react-bootstrap";
 
 function Login(){
 
@@ -46,7 +47,7 @@ function Login(){
       console.log(response.data.access_token);
       localStorage.setItem('token',response.data.access_token);
 
-      navigate('/dasboardsiswa');
+      navigate('/siswa/dasboard');
 
     }).catch((error) => {
       console.log(error.response.data);
@@ -72,7 +73,7 @@ function Login(){
                   }
             <form onSubmit={loginHandler}>
             <div className="d-flex flex-row align-items-center mb-4">
-              <MDBInput label="Alamat Email" type="text" className="w-100 mg1 form-control" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
+              <MDBInput label="Alamat Email" type="text" className="w-100 mg1 form-control" id="emailsiswa" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
               {
                 validation.email && (
                 <small className="text-danger">
@@ -84,7 +85,7 @@ function Login(){
 
                     <div className="mb-3">
                       <label htmlFor="password" className="form-label">Kata Sandi</label>
-                      <input type="password" className="form-control" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
+                      <input type="password" className="form-control" id="passwordsiswa" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
                       {
                         validation.password && (
                           <small className="text-danger">
@@ -93,12 +94,12 @@ function Login(){
                         )
                       }
                     </div>
-                    <button className="btn btn-warning" type="submit">Login</button>
                   </form>
+                  <Button onClick={loginHandler} type="submit" className='btn btn-warning mt-4' style={{color: 'white'}} size='lg'>Login</Button>
       
  </MDBCol>
  <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
-            <MDBCardImage src={logo} fluid className='mt-4 md2'/>
+            <MDBCardImage src={logo} fluid className='logologins'/>
           </MDBCol>
 
         </MDBRow>

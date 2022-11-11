@@ -1,18 +1,14 @@
 import React from 'react'
 import { Button, Col, Container } from 'react-bootstrap'
-import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
-import './RuangDiskusiGuru.css'
+import './RuangDiskusiSiswa.css'
 import { Table } from 'react-bootstrap';
+import NavBarSiswa from '../../../components/NavBarSiswa/NavBarSiswa';
 
-const RuangDiskusiGuru = () => {
+const RuangDiskusiSiswa = () => {
   return (
-    <div><NavBarGuru/>
+    <div><NavBarSiswa/>
     <h5><div className='labelabsen fw-bold'>RUANG DISKUSI</div></h5>
     <Container>
-        <Col>
-    <Button href='/guru/ruang-diskusi/buat-ruang-diskusi' variant='success' size='sm' className='tambahruang'>+ Buat Ruang Baru</Button>
-    </Col>
-
     <Container>
         <Table striped bordered hover size='lg' className='text-center mt-4'>
       <thead>
@@ -21,7 +17,6 @@ const RuangDiskusiGuru = () => {
         <th>Judul</th>
         <th>Mata Pelajaran</th>
         <th>Keterangan</th>
-        <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -31,8 +26,9 @@ const RuangDiskusiGuru = () => {
       </Container>
 
     </Container>
+
     </div>
   )
 }
 
-export default RuangDiskusiGuru
+export default RuangDiskusiSiswa

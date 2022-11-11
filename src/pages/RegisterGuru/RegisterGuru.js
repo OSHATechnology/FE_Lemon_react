@@ -72,74 +72,88 @@ const RegisterGuru = () => {
       
 
 
+            <Row>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Nama Lengkap</Form.Label>
+            <Form.Control label='Nama Lengkap' onChange={(e) => setDataRegister({ ...dataRegister, nama: e.target.value })} id='inputName' type='text' className='w-100 mg1' />
+            </Form.Group>
 
-            <Form.Group className="mb-3">
-        <Form.Label>Nama Lengkap</Form.Label>
-        <Form.Control label='Nama Lengkap' onChange={(e) => setDataRegister({ ...dataRegister, nama: e.target.value })} id='inputName' type='text' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>NIP</Form.Label>
-        <Form.Control label='NIP' onChange={(e) => setDataRegister({ ...dataRegister, nip: e.target.value })} id='inputNIP' type='number' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Email</Form.Label>
-        <Form.Control label='Email' onChange={(e) => setDataRegister({ ...dataRegister, email: e.target.value })} id='inputEmail' type='email' className='mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, password: e.target.value })} id='inputPassword' type='password' className='mg1' />
-      </Form.Group>
-
-      <Row className="mb-3">
-        <Form.Group as={Col}>
-          <Form.Label>Alamat</Form.Label>
-          <Form.Control label='Alamat' onChange={(e) => setDataRegister({ ...dataRegister, alamat: e.target.value })} id='inputAlamat' type='text' className='' />
-        </Form.Group>
-
-        <Form.Group as={Col}>
-          <Form.Label>Kode Pos</Form.Label>
-          <Form.Control label='Kode Pos' onChange={(e) => setDataRegister({ ...dataRegister, kd_pos: e.target.value })} id='inputPos' type='text' className='' />
-        </Form.Group>
-      </Row>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Nomor Telepon</Form.Label>
-        <Form.Control label='Nomor Telepon' onChange={(e) => setDataRegister({ ...dataRegister, telepon: e.target.value })} id='inputTelepon' type='number' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Tempat Lahir</Form.Label>
-        <Form.Control label='Tempat' onChange={(e) => setDataRegister({ ...dataRegister, tempat: e.target.value })} id='inputTempat' type='text' className='w-100 mg1' />
-      </Form.Group>
-
-            <Form.Group className="mb-3">
-        <Form.Label>Tanggal Lahir</Form.Label>
-        <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, tgl_lahir: e.target.value })} id='inputTgl' type='date' className='w-100 mg1' />
-      </Form.Group>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>NIP</Form.Label>
+            <Form.Control label='NIP' onChange={(e) => setDataRegister({ ...dataRegister, nip: e.target.value })} id='inputNIP' type='number' className='w-100 mg1' />
+            </Form.Group>
+            </Row>
 
 
-      <Form.Group className="mb-3">
-          <Form.Label htmlFor="disabledSelect">Jenis Kelamin</Form.Label>
-          <Form.Select label='Jenis Kelamin' onChange={(e) => setDataRegister({ ...dataRegister, jns_kelamin: e.target.value })} id='inputKelamin' type='select' className='w-100 mg1' >
+            <Row>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control label='Email' onChange={(e) => setDataRegister({ ...dataRegister, email: e.target.value })} id='inputEmail' type='email' className='mg1' />
+            </Form.Group>
+
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Password</Form.Label>
+            <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, password: e.target.value })} id='inputPassword' type='password' className='mg1' />
+            </Form.Group>
+            </Row>
+            
+     
+            <Row>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Alamat</Form.Label>
+            <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, alamat: e.target.value })} id='inputAlamat' type='text' className='mg1' />
+            </Form.Group>
+
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Kode Pos</Form.Label>
+            <Form.Control label='Kode Pos' onChange={(e) => setDataRegister({ ...dataRegister, kd_pos: e.target.value })} id='inputPos' type='text' className='mg1' />
+            </Form.Group>
+            </Row>
+
+            <Row>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Nomor Telepon</Form.Label>
+            <Form.Control label='nomor' onChange={(e) => setDataRegister({ ...dataRegister, telepon: e.target.value })} id='inputTelepon' type='number' className='mg1' />
+            </Form.Group>
+
+
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Tempat Lahir</Form.Label>
+            <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, tempat: e.target.value })} id='inputTempat' type='text' className='mg1' />
+            </Form.Group>
+            </Row>
+
+
+
+            <Row>
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label>Tanggal Lahir</Form.Label>
+            <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, tgl_lahir: e.target.value })} id='inputTgl' type='date' className='mg1' />
+            </Form.Group>
+           
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label htmlFor="disabledSelect">Jenis Kelamin</Form.Label>
+            <Form.Select label='Jenis Kelamin' onChange={(e) => setDataRegister({ ...dataRegister, jns_kelamin: e.target.value })} id='inputKelamin' type='select' className='mg1' >
             <option disabled selected>- Silahkan Pilih -</option>
             <option>Laki-Laki</option>
             <option>perempuan</option>
-          </Form.Select>
-        </Form.Group>
+            </Form.Select>
+            </Form.Group>
 
 
-            <Form.Group className="mb-3">
-          <Form.Label htmlFor="disabledSelect">Agama</Form.Label>
-          <Form.Select label='Agama' onChange={(e) => setDataRegister({ ...dataRegister, agama: e.target.value })} id='inputAgama' type='select' className='w-100 mg1' >
+            <Form.Group as={Col} className="mb-3">
+            <Form.Label htmlFor="disabledSelect">Agama</Form.Label>
+            <Form.Select label='Agama' onChange={(e) => setDataRegister({ ...dataRegister, agama: e.target.value })} id='inputAgama' type='select' className='mg1' >
             <option disabled selected>- Silahkan Pilih -</option>
             <option>Islam</option>
-            <option>Kristen</option>
+            <option>Protestan</option>
+            <option>Katolik</option>
             <option>Hindu</option>
-          </Form.Select>
-        </Form.Group>
+            <option>Buddha</option>
+            <option>Khonghucu</option>
+            </Form.Select>
+            </Form.Group>
+            </Row>
             
 
 

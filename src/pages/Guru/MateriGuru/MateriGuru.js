@@ -113,7 +113,7 @@ function MateriGuru() {
     <div className='container'>
     <br></br>
     </div>
-    <Button type="submit" id="Uploadbtn" className="btn btn-primary">Upload Materi</Button>
+    <Button type="submit" id="Uploadbtn" className="btn btn-success">Upload Materi</Button>
             </Tab.Pane>
 
 
