@@ -1,5 +1,5 @@
 import React from 'react'
-import NavigationBar from '../../components/NavigationBar/NavigationBar'
+import NavigationBar from '../../../components/NavigationBar/NavigationBar'
 import {
     MDBBtn,
     MDBContainer,
@@ -11,7 +11,7 @@ import {
     MDBInput
   }
   from 'mdb-react-ui-kit';
-  import logo11 from '../../img/Lemon.png'
+  import logo11 from '../../../img/Lemon.png'
   import './LoginGuru.css'
 import { Button } from 'react-bootstrap';
 

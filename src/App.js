@@ -2,13 +2,12 @@ import NavigationBar from './components/NavigationBar/NavigationBar';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import PageLogin from './pages/PageLogin/PageLogin';
-import Login from './pages/Login/Login';
+import Login from './pages/Auth/Login/Login';
 import Tentang from './pages/Tentang/Tentang';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import ContactUs from './pages/ContactUs/ContactUs';
-import LoginGuru from './pages/LoginGuru/LoginGuru';
+import LoginGuru from './pages/Auth/LoginGuru/LoginGuru';
 import DasboardSiswa from './pages/DasboardSiswa/DasboardSiswa';
 import AbsensiSiswa from './pages/AbsensiSiswa/AbsensiSiswa';
 import MateriSiswa from './pages/Siswa/MateriSiswa/MateriSiswa';
@@ -23,6 +22,14 @@ import axios from 'axios';
 import DaftarSiswa from './pages/Guru/DataSiswa/DaftarSiswa';
 import EditSiswa from './pages/Guru/DataSiswa/EditSiswa';
 import DetailSiswa from './pages/Guru/DataSiswa/DetailSiswa';
+import JurnalGuru from './pages/Guru/JurnalGuru/JurnalGuru';
+import JurnalGuruKelas from './pages/Guru/JurnalGuruKelas/JurnalGuruKelas';
+import JurnalGuruSiswa from './pages/Guru/JurnalGuruSiswa/JurnalGuruSiswa';
+import AddModulPembelajaran from './pages/Guru/AddModulPembelajaran/AddModulPembelajaran';
+import ModulPembelajaran from './pages/Guru/ModulPembelajaran/ModulPembelajaran';
+import AddTugas from './pages/Guru/AddTugas/AddTugas';
+import KelasVirtual from './pages/Guru/KelasVirtual/KelasVirtual';
+import AddKelasVirtual from './pages/Guru/AddKelasVirtual/AddKelasVirtual';
 
 function App() {
   axios.defaults.baseURL = 'http://localhost:8000';
@@ -53,6 +60,14 @@ function App() {
         <Route path='/daftarsiswa' element={<DaftarSiswa />} />
         <Route path='/daftarsiswa/edit-siswa/:id' element={<EditSiswa />} />
         <Route path='/daftarsiswa/detailsiswa/:id' element={<DetailSiswa />} />
+        <Route path='/jurnalguru' element={<JurnalGuru />} />
+        <Route path='/jurnalguru/modul' element={<ModulPembelajaran />} />
+        <Route path='/jurnalguru/modul/buat' element={<AddModulPembelajaran />} />
+        <Route path='/jurnalguru/modul/buat-materi' element={<AddTugas />} />
+        <Route path='/jurnalguru/modul/kelas' element={<JurnalGuruKelas />} />
+        <Route path='/jurnalguru/modul/siswa' element={<JurnalGuruSiswa />} />
+        <Route path='/kelasvirtual' element={<KelasVirtual />} />
+        <Route path='/kelasvirtual/buat' element={<AddKelasVirtual />} />
       </Routes></>
 
 

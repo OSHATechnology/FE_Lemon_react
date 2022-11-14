@@ -1,8 +1,8 @@
 import axios from "axios";
 import react, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import NavBarSiswa from "../../components/NavBarSiswa/NavBarSiswa";
-import NavigationBar from "../../components/NavigationBar/NavigationBar";
+import NavBarSiswa from "../../../components/NavBarSiswa/NavBarSiswa";
+import NavigationBar from "../../../components/NavigationBar/NavigationBar";
 import {
   MDBBtn,
   MDBContainer,
@@ -14,7 +14,7 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
-import logo from '../../img/Lemon.png'
+import logo from '../../../img/Lemon.png'
 
 
 function Login(){
