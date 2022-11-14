@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import { Table } from 'react-bootstrap';
 
 import { Viewer } from '@react-pdf-viewer/core'; // install this library
 // Plugins
@@ -22,63 +23,6 @@ import './MateriGuru.css';
 
 function MateriGuru() {
 
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  
-  // for onchange event
-  const [pdfFile, setPdfFile]=useState(null);
-  const [pdfFileError, setPdfFileError]=useState('');
-
-  // for submit event
-  const [viewPdf, setViewPdf]=useState(null);
-
-  // onchange event
-  const fileType=['application/pdf'];
-  const handlePdfFileChange=(e)=>{
-    let selectedFile=e.target.files[0];
-    if(selectedFile){
-      if(selectedFile&&fileType.includes(selectedFile.type)){
-        let reader = new FileReader();
-            reader.readAsDataURL(selectedFile);
-            reader.onloadend = (e) =>{
-              setPdfFile(e.target.result);
-              setPdfFileError('');
-            }
-      }
-      else{
-        setPdfFile(null);
-        setPdfFileError('Please select valid pdf file');
-      }
-    }
-    else{
-      console.log('select your file');
-    }
-  }
-
-  // form submit
-  const handlePdfFileSubmit=(e)=>{
-    e.preventDefault();
-    if(pdfFile!==null){
-      setViewPdf(pdfFile);
-    }
-    else{
-      setViewPdf(null);
-    }
-  }
-
- const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
-
-
-
   return (
     <div><NavBarGuru/>
     <h5><div className='MATERIDANTUGAS fw-bold'>MATERI DAN TUGAS SISWA</div></h5>
@@ -90,12 +34,15 @@ function MateriGuru() {
         <Col sm={3}>
 
 
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="flex-column bakron">
             <Nav.Item>
-              <Nav.Link eventKey="first" className='mt-3 mb-3'>Upload Materi</Nav.Link>
+              <Nav.Link eventKey="first" className='mt-3 mb-3 warna'>Upload Materi dan Tugas</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="second">Upload Tugas</Nav.Link>
+              <Nav.Link eventKey="second" className='mt-3 mb-3 warna'>Tugas Siswa</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="third" className='mt-3 mb-3 warna'>Modul Guru</Nav.Link>
             </Nav.Item>
           </Nav>
         </Col>
@@ -104,12 +51,33 @@ function MateriGuru() {
             <Tab.Pane eventKey="first">
 
             <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Mata Pelajaran</Form.Label>
-        <Form.Control type="email"/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+      <Form.Group className="mb-3">
+          <Form.Label htmlFor="disabledSelect">Mata Pelajaran</Form.Label>
+          <Form.Select id="mapel">
+            <option disabled selected>- Silahkan Pilih -</option>
+            <option>Bahasa Indonesia</option>
+            <option>Bahasa Inggris</option>
+            <option>Bahasa Sunda</option>
+            <option>Matematika</option>
+            <option>IPS</option>
+            <option>IPA</option>
+            <option>PJOK</option>
+            <option>Pendidikan Agama Islam</option>
+            <option>Pendidikan Pancasila</option>
+            <option>Informatika</option>
+            <option>Seni Dan Prakarya</option>
+          </Form.Select>
+          </Form.Group>
+      <Form.Group className="mb-3">
+          <Form.Label htmlFor="disabledSelect">Kelas</Form.Label>
+          <Form.Select id="kelas">
+            <option disabled selected>- Silahkan Pilih -</option>
+            <option>X</option>
+            <option>XI</option>
+            <option>XII</option>
+          </Form.Select>
+        </Form.Group>
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Judul Materi</Form.Label>
         <Form.Control type="email"/>
@@ -117,38 +85,15 @@ function MateriGuru() {
         </Form.Text>
       </Form.Group>
 
-      <Form.Group className="mb-3">
-          <Form.Label htmlFor="disabledSelect">Kelas</Form.Label>
-          <Form.Select id="agama">
-            <option>- Silahkan Pilih -</option>
-            <option>X</option>
-            <option>XI</option>
-            <option>XII</option>
-          </Form.Select>
-        </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Deskripsi</Form.Label>
+        <Form.Label>Deskripsi Materi</Form.Label>
         <Form.Control type="email"/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
       </Form>
 
-      <h6><div className='fw-bold'>Upload Materi</div></h6>
-    <div className='container'>
-    <br></br>
-    </div>
-            </Tab.Pane>
-            <Tab.Pane eventKey="second">
-
-            <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Mata Pelajaran</Form.Label>
-        <Form.Control type="email"/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Judul tugas</Form.Label>
         <Form.Control type="email"/>
@@ -156,26 +101,69 @@ function MateriGuru() {
         </Form.Text>
       </Form.Group>
 
-      <Form.Group className="mb-3">
-          <Form.Label htmlFor="disabledSelect">Kelas</Form.Label>
-          <Form.Select id="agama">
-            <option>- Silahkan Pilih -</option>
-            <option>X</option>
-            <option>XI</option>
-            <option>XII</option>
-          </Form.Select>
-        </Form.Group>
-
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Deskripsi tugas</Form.Label>
         <Form.Control type="email"/>
         <Form.Text className="text-muted">
         </Form.Text>
       </Form.Group>
-      </Form>
+
+
+      <h6><div className='fw-bold'>Upload Materi</div></h6>
+    <div className='container'>
+    <br></br>
+    </div>
+    <Button type="submit" id="Uploadbtn" className="btn btn-success">Upload Materi</Button>
+            </Tab.Pane>
+
+
+
+            <Tab.Pane eventKey="second">
+
+            <Container>
+        <Table striped bordered hover size='sm' className='text-center'>
+      <thead>
+        <tr>
+        <th>Nama</th>
+        <th>Mata Pelajaran</th>
+        <th>Kelas</th>
+        <th>File Tugas</th>
+        <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </Table>
+      </Container>
+            </Tab.Pane>
+
+
+
+            <Tab.Pane eventKey="third">
+
+            <Container>
+        <Table striped bordered hover size='sm' className='text-center'>
+      <thead>
+        <tr>
+        <th>Nama</th>
+        <th>Mata Pelajaran</th>
+        <th>Kelas</th>
+        <th>File Tugas</th>
+        <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+      </Table>
+      </Container>
+
 
             </Tab.Pane>
-          </Tab.Content>
+
+            </Tab.Content>
+            
         </Col>
       </Row>
     </Tab.Container>

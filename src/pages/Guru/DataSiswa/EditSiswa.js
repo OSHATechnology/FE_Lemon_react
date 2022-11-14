@@ -74,7 +74,10 @@ class EditSiswa extends Component {
                 text: res.message,
                 icon: "success",
                 button: "Ok!",
-              });
+              }).then((result) => {
+                document.getElementById('updatebtn').innerText = "Update Data";
+              })
+               
             document.getElementById('updatebtn').removeAttribute("disabled");
             document.getElementById('updatebtn').innerText = "updating";
         }
@@ -158,7 +161,7 @@ class EditSiswa extends Component {
 
                         <Form.Group className="mb-3">
                         <Form.Label>Telepon</Form.Label>
-                        <Form.Control type="number" name='telepon' onChange={this.handleInput} value={this.state.telepon} className="form" />
+                        <Form.Control type="text" name='telepon' onChange={this.handleInput} value={this.state.telepon} className="form" />
                         </Form.Group>
 
                         <Form.Group className="mb-3">

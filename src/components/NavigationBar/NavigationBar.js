@@ -11,6 +11,7 @@ import logo3 from '../../img/Lemon.png';
 import axios from "axios";
 import { useState, useEffect } from 'react';
 
+
 const NavigationBar = () => {
   return (
     <div>
@@ -30,7 +31,10 @@ const NavigationBar = () => {
             <NavDropdown title="Login" id="basic-nav-dropdown">
               <NavDropdown.Item href="/login">Login Siswa</NavDropdown.Item>
               <NavDropdown.Item href="/loginguru">Login Guru</NavDropdown.Item>
-              <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+              </NavDropdown>
+            <NavDropdown title="Register" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/register">Register Siswa</NavDropdown.Item>
+              <NavDropdown.Item href="/register/guru">Register Guru</NavDropdown.Item>
               </NavDropdown>
             <NavDropdown title="About Us" id="basic-nav-dropdown">
               <NavDropdown.Item href="/tentang">E-Learning</NavDropdown.Item>

@@ -1,24 +1,15 @@
-.MATERIDANTUGAS {
-    margin-left: 120px;
-    margin-top: 40px;
-    margin-bottom: 15px;
-}
 
-.btn2 {
-    margin-left: 10px;
-}
-
-.warna {
+.warnaa3 {
     background-color: rgb(255, 255, 255) !important;
     color: rgb(0, 0, 0) !important;
 }
 
-.warna:hover {
+.warnaa3:hover {
     background-color:green !important;
     color: aliceblue !important;
 }
 
-.bakron .nav-link.active {
+.bakronnn .nav-link.active {
     background-color:green !important;
     color: aliceblue !important;
 }

@@ -8,9 +8,9 @@ import gambarlog from '../../img/logout.png';
 import './NavBarSiswa.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Jam from '../Jam/Jam';
 import Modal from 'react-bootstrap/Modal';
 import React, { useEffect, useState } from 'react';
+import Jam from '../Jam/Jam';
 import Tanggal from '../Jam/Tanggal';
 import userEvent from '@testing-library/user-event';
 import { useNavigate } from 'react-router-dom';
@@ -56,34 +56,30 @@ function NavBarSiswa() {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar>
+    <Navbar className='navsis'>
       <Container>
         <img className='logoNav' src={logo10}/>
-        <Navbar.Brand href="/home">E-Learning</Navbar.Brand>
+        <Navbar.Brand href="/siswa/dasboard" style={{color: 'white'}}>E-Learning</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
         <Nav className="me-auto me12" >
-            <Nav.Link href="/dasboardsiswa">Dasboard</Nav.Link>
-            <Nav.Link href="/absensisiswa">Absensi</Nav.Link>
-            <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/materisiswa">Materi</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Ruang Diskusi
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Kelas Virtual</NavDropdown.Item>
+            <Nav.Link style={{color: 'white'}} href="/siswa/dasboard">Dasboard</Nav.Link>
+            <Nav.Link style={{color: 'white'}} href="/absensisiswa">Absensi</Nav.Link>
+            <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown" className='linknav'>
+              <NavDropdown.Item  href="/materisiswa">Materi</NavDropdown.Item>
+              <NavDropdown.Item href="/siswa/ruang-diskusi">Ruang Diskusi</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3" >Kelas Virtual</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Akademik" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">E-Rapot</NavDropdown.Item>
-              <NavDropdown.Item href="/kalenderakademik">
-                Kalender Akademik
-              </NavDropdown.Item>
+              <NavDropdown.Item href="/kalenderakademik">Kalender Akademik</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/pengaturansiswa">Pengaturan Akun</Nav.Link>
+            <Nav.Link style={{color: 'white'}} href="/pengaturansiswa">Pengaturan Akun</Nav.Link>
           </Nav>
           <Navbar.Text>
             <img className='loguser' src={logo11}/>
-            Halo, <a className='fw-bold' href="/pengaturanSiswa">{user.nama}</a> 
-          <Button className='logout2' variant="outline-danger" size='sm' onClick={handleShow}>Logout</Button>
+            <a className='fw-bold' style={{color: 'white'}} href="/pengaturanSiswa"> Halo, {user.nama}</a> 
+          <Button className='logout2' variant="danger" style={{color: 'white'}} size='sm' onClick={handleShow}>Logout</Button>
           <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Logout</Modal.Title>

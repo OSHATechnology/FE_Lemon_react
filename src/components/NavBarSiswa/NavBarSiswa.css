@@ -2,7 +2,7 @@
   width: 50px;
   height: auto;
   margin-right: 10px;
-  margin-left: 100px;
+  margin-left: 5px;
   margin-top: -5px;
 }
 
@@ -28,4 +28,13 @@
 
 .me12 {
   margin-left: 20px;
+}
+
+.navsis {
+  background-color: #FFC107 !important;
+  color: white !important;
+}
+
+.linknav {
+  
 }
