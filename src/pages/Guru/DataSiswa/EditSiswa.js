@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { Button, Container, Form, Card, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+import { Button, Container, Form, Card } from 'react-bootstrap';
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 import withRouter from '../../../withRouter';
 import swal from 'sweetalert';

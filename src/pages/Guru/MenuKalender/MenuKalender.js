@@ -1,15 +1,9 @@
-
+import React from 'react';
 import { Container } from 'react-bootstrap'
-import Button from 'react-bootstrap/Button';
-import './MenuKalender.css'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru';
-import Modal from 'react-bootstrap/Modal';
-import React, { useState } from 'react';
+import './MenuKalender.css'
 
 const MenuKalender = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
   return (
     <div>
         <NavBarGuru/>
