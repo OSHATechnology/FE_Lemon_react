@@ -1,25 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Button, Container, Card, Form, Table } from 'react-bootstrap';
 import NavBarSiswa from '../../../components/NavBarSiswa/NavBarSiswa';
-import Searchbar from '../../../components/SearchBar/Searchbar';
-import Selfie from '../../../components/Selfie/Selfie';
-import { Button, Col, Container } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import Tanggal from '../../../components/JamGuru/TanggalGuru';
-import { Table } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+import Time from '../../../components/Jam/Time';
 import './AbsensiSiswa.css'
 
 const AbsensiSiswa = () => {
+  const [data, setData] = useState({})
+
   return (
-        <div><NavBarSiswa/>
-         <h5><div className='labelabsensiswa fw-bold'>ABSENSI SISWA</div></h5>
-         <Container>
-    
+    <div>
+      <NavBarSiswa/>
+      
+      <Container className='mt-5'>
+        <Card>
+          <Card.Header>
+            <Card.Title><h5 className='labelabsensiswa fw-bold'>ABSENSI SISWA</h5></Card.Title>
+          </Card.Header>
           <Card.Body>
-            <Col className='jamabsensiswa fw-bold'>JAM / HARI : </Col>
-            <Col className='jamabsensiswa' ><Tanggal></Tanggal> </Col>
-    
-    
+            <div className='jamabsensiswa fw-bold'>JAM / HARI : </div>
+            <div className='jamabsensiswa'><Time /></div>
+
             <Form.Group className="mb-3 mt-3 ketabsensiswa">
               <Form.Label htmlFor="disabledSelect" className='fw-bold'>KETERANGAN :</Form.Label>
               <Form.Select id="keteranganAbsen">
@@ -29,41 +29,50 @@ const AbsensiSiswa = () => {
                 <option>Sakit</option>
               </Form.Select>
             </Form.Group>
-    
+
             <Form.Group className="mb-3 mt-3 ketabsensiswa">
-            <Form.Label className='fw-bold' >CATATAN</Form.Label>
-            <Form.Control type="Text" placeholder='Silahkan isi jika berhalangan hadir' />
-            <Form.Text className="text-muted">
-            </Form.Text>
-          </Form.Group>
-    
-    
+              <Form.Label className='fw-bold' >CATATAN</Form.Label>
+              <Form.Control type="Text" placeholder='Silahkan isi jika berhalangan hadir' />
+            </Form.Group>
+
             <Button variant="warning" className='absensiswa'>Absen</Button>
-    
-    
-            <Container>
-            <Table striped bordered hover size='lg' className='text-center mt-4'>
-          <thead>
-            <tr>
+          </Card.Body>
+        </Card>
+        
+        <Table striped bordered hover size='lg' className='text-center mt-4'>
+        <thead>
+          <tr>
             <th>No</th>
             <th>Hari/Tanggal</th>
             <th>Jam</th>
             <th>Keterangan</th>
             <th>Catatan</th>
-            </tr>
-          </thead>
-          <tbody>
-    
-          </tbody>
-          </Table>
-          </Container>
-    
-            </Card.Body>
-            </Container>
-        
-        </div>
-      )
-
+          </tr>
+        </thead>
+        <tbody>
+          {data.length>0 
+            ? data.map((item, key)=>{
+              return (
+                <tr>
+                  <td>1</td>
+                  <td>Senin, 14 November</td>
+                  <td>09:00</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              )
+            }) 
+            :(
+              <tr>
+                <td colSpan={5}>Data tidak ditemukan</td>
+              </tr>
+            )
+          }
+        </tbody>
+        </Table>
+      </Container>
+    </div>
+  )
 }
 
 export default AbsensiSiswa

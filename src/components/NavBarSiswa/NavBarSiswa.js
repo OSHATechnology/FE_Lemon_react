@@ -1,20 +1,14 @@
-import { Col, Container, Row } from 'react-bootstrap'
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container, Nav, Navbar, NavDropdown, Button, Modal } from 'react-bootstrap'
 import logo10 from '../../img/Lemon.png';
 import logo11 from '../../img/user.png';
-import gambarlog from '../../img/logout.png';
-import './NavBarSiswa.css';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import React, { useEffect, useState } from 'react';
 import Jam from '../Jam/Jam';
 import Tanggal from '../Jam/Tanggal';
-import userEvent from '@testing-library/user-event';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './NavBarSiswa.css';
+
+// import userEvent from '@testing-library/user-event';
 
 
 function NavBarSiswa() {
@@ -57,14 +51,14 @@ function NavBarSiswa() {
 
   return (
     <Navbar className='navsis'>
-      <Container>
+      <Container fluid>
         <img className='logoNav' src={logo10}/>
-        <Navbar.Brand href="/siswa/dasboard" style={{color: 'white'}}>E-Learning</Navbar.Brand>
+        <Navbar.Brand href="/siswa/dasboard" className='fw-bold' style={{ color: '#926e04' }}>E-Learning</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-        <Nav className="me-auto me12" >
-            <Nav.Link style={{color: 'white'}} href="/siswa/dasboard">Dasboard</Nav.Link>
-            <Nav.Link style={{color: 'white'}} href="/absensisiswa">Absensi</Nav.Link>
+          <Nav className="me-auto ms-5" >
+            <Nav.Link href="/siswa/dasboard">Dasboard</Nav.Link>
+            <Nav.Link href="/absensisiswa">Absensi</Nav.Link>
             <NavDropdown title="Pembelajaran" id="collasible-nav-dropdown" className='linknav'>
               <NavDropdown.Item  href="/materisiswa">Materi</NavDropdown.Item>
               <NavDropdown.Item href="/siswa/ruang-diskusi">Ruang Diskusi</NavDropdown.Item>
@@ -74,34 +68,33 @@ function NavBarSiswa() {
               <NavDropdown.Item href="#action/3.1">E-Rapot</NavDropdown.Item>
               <NavDropdown.Item href="/kalenderakademik">Kalender Akademik</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link style={{color: 'white'}} href="/pengaturansiswa">Pengaturan Akun</Nav.Link>
+            <Nav.Link href="/pengaturansiswa">Pengaturan Akun</Nav.Link>
           </Nav>
           <Navbar.Text>
-            <img className='loguser' src={logo11}/>
-            <a className='fw-bold' style={{color: 'white'}} href="/pengaturanSiswa"> Halo, {user.nama}</a> 
-          <Button className='logout2' variant="danger" style={{color: 'white'}} size='sm' onClick={handleShow}>Logout</Button>
-          <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Logout</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Apakah anda ingin logout?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Tidak
-          </Button>
-          <Button variant="danger" onClick={logoutHandler}>
-            Logout
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            <img className='loguser me-2' src={logo11}/>
+            <a className='fw-bold' href="/pengaturanSiswa" style={{ color: '#926e04' }}> Halo, {user.nama}</a> 
+            <Button className='ms-3' variant="danger" size='sm' onClick={handleShow}>Logout</Button>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title>Logout</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>Apakah anda ingin logout?</Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Tidak
+                </Button>
+                <Button variant="danger" onClick={logoutHandler}>
+                  Logout
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </Navbar.Text>
         </Navbar.Collapse>
+        <div className='ms-5'>
+          <Jam/>
+          <Tanggal/>
+        </div>
       </Container>
-      <Container className='cont'>
-      <Col className='jamT'>
-      <Jam/>
-        <Tanggal/></Col>
-        </Container>
     </Navbar>
   );
 }

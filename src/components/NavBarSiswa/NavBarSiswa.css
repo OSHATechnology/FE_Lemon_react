@@ -9,32 +9,18 @@
 .loguser {
   width: 40px;
   height: auto;
-  margin-right: 10px;
-}
-
-.logout2 {
-  margin-left: 10px;
-  margin-right: -25px;
-}
-
-.logoutg {
-  width: 40px;
-}
-
-
-.color {
-  color: white;
-}
-
-.me12 {
-  margin-left: 20px;
 }
 
 .navsis {
   background-color: #FFC107 !important;
-  color: white !important;
+  color: #926e04 !important;
 }
 
-.linknav {
-  
+.navsis a {
+  transition: 0.3s
+}
+
+.navsis a:hover {
+  color: #634b02 !important;
+  transition: 0.3s
 }

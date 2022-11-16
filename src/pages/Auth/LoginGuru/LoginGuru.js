@@ -1,25 +1,21 @@
 import React from 'react'
 import NavigationBar from '../../../components/NavigationBar/NavigationBar'
 import {
-    MDBBtn,
-    MDBContainer,
-    MDBCheckbox,
-    MDBCardImage,
-    MDBRow,
-    MDBCol,
-    MDBIcon,
-    MDBInput
-  }
-  from 'mdb-react-ui-kit';
-  import logo11 from '../../../img/Lemon.png'
-  import './LoginGuru.css'
+  MDBContainer,
+  MDBCardImage,
+  MDBRow,
+  MDBCol,
+}
+from 'mdb-react-ui-kit';
+import {useEffect, useState} from "react";
 import { Button } from 'react-bootstrap';
-import axios from "axios";
-import react, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import logo11 from '../../../img/Lemon.png'
+import axios from "axios";
 import './LoginGuru.css';
 
 const LoginGuru = () => {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,7 +25,7 @@ const LoginGuru = () => {
 
   useEffect(() => {
     if(localStorage.getItem('token')){
-      navigate('/home');
+      navigate('/guru/dashboard');
     }
   },[]);
 
@@ -56,34 +52,53 @@ const LoginGuru = () => {
   }
 
   return (
-    <div><NavigationBar/>
-    <MDBContainer fluid>
-        <MDBRow>
-          <MDBCol md='3' lg='5' className='order-2 order-lg-1 d-flex flex-column align-items-center col15'>
-
-            <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-4">LOGIN GURU</p>
-            <p className="text-center h7 mb-4">Selamat datang di E-learning Lemon para pengajar</p>
+    <div>
+      <NavigationBar/>
+      <MDBContainer className="mt-5 pt-3">
+        <MDBRow className="justify-content-center auth-form-row">
+          <MDBCol>
+            <p className="text-center h1 fw-bold">LOGIN GURU</p>
+            <p className="text-center">Selamat datang di E-learning Lemon para pengajar</p>
+              {
+                validation.error && (
+                  <div className="alert alert-danger" role="alert">
+                    { validation.error }
+                    </div>
+                )
+              }
             <form onSubmit={loginHandler}>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Alamat Email</label>
+                <input label="Alamat Email" type="text" className="form-control" id="emailsiswa" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email@example.com"/>
+                {
+                  validation.email && (
+                  <small className="text-danger">
+                    { validation.email[0] }
+                  </small>
+                  )
+                }
+              </div>
 
-            <div className="d-flex flex-row align-items-center mb-4">
-              <MDBIcon fas icon="user me-3" size='lg'/>
-              <MDBInput label='Email' id='form1' type='text' className='w-100 mg1' name='emailguru' onChange={(e) => {setEmail(e.target.value)}}/>
-            </div>
-
-            <div className="d-flex flex-row align-items-center mb-4">
-              <MDBIcon fas icon="lock me-3" size='lg'/>
-              <MDBInput label='Password' id='form3' type='password' className='mg1' name='passwordguru' onChange={(e) => {setPassword(e.target.value)}}/>
-            </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Kata Sandi</label>
+                <input type="password" className="form-control" id="passwordsiswa" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
+                {
+                  validation.password && (
+                    <small className="text-danger">
+                      { validation.password[0] }
+                    </small>
+                  )
+                }
+              </div>
             </form>
-            <Button onClick={loginHandler} className='btn btn-success' type='submit' style={{color: 'white'}}>Login</Button>
+            <Button onClick={loginHandler} type="submit" className='btn btn-success mt-3 w-100' style={{color: 'white'}} size='lg'>Login</Button>
           </MDBCol>
-          <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
-            <MDBCardImage src={logo11} fluid className='logologg'/>
+          <MDBCol className='d-flex justify-content-center align-items-center'>
+            <MDBCardImage src={logo11}/>
           </MDBCol>
-
         </MDBRow>
-
-  </MDBContainer></div>
+      </MDBContainer>
+    </div>
   )
 }
 

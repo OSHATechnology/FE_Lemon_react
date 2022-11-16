@@ -7,19 +7,24 @@ import './Home.css';
 
 function Home() {
   return (
-    <div><NavigationBar/>
-    
-    <Row className='h101'>
-    <img className='logo1' src={logo1}></img>
-            <Col xs={2} sm={4} md={4} lg={8}><h1><div className='fw-bold'>E-Learning</div></h1>
+    <div>
+      <NavigationBar/>
+      <Container>
+        <Row className='h101'>
+          <Col>
+            <div className='d-flex gap-3 align-items-center mb-3'>
+              <img className='logo1' src={logo1}></img>
+              <h1 className='fw-bold'>E-Learning</h1>
+            </div>
             <div className='text6'>Learning & Monitoring System By OSHA TECHNOLOGY INDONESIA</div>
-            <div>2022</div></Col>
-           
-            </Row>
-            <Col md='4' lg='5' className='d-flex align-items-center md1'>
+            <div>2022</div>
+          </Col>
+          <Col className='d-flex align-items-center md1'>
             <img src={logo2} fluid className='mt-6 logo3'/>
           </Col>
-            </div>
+        </Row>
+      </Container>
+    </div>
   )
 }
 

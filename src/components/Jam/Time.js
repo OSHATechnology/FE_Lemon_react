@@ -1,17 +1,21 @@
 import Moment from 'moment';
 import React, { useEffect, useState } from "react";
 
-function Tanggal() {
-
-    const [clockState, setClockState] = useState();
+function Time() {
+  const [clockState, setClockState] = useState();
   
+  // Time
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      setClockState(date.toLocaleTimeString());
+      setClockState(date.toLocaleTimeString(navigator.language, {
+        hour: '2-digit',
+        minute:'2-digit'
+      }));
     }, 1000);
   }, []);
 
+  // DateTime
   var idLocale = require('moment/locale/id'); 
   Moment.locale('id', idLocale);
 
@@ -20,4 +24,4 @@ function Tanggal() {
   return <div style={{ fontSize: "17px"}}>{clockState} - {formatDate}</div>;
 }
 
-export default Tanggal;
+export default Time;

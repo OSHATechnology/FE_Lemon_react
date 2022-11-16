@@ -10,7 +10,13 @@
     border-radius: 20px;
     color: #fbfbfb;
     background-color: #198754;
-    
+    transition: 0.3s;
+}
+
+.list-jurnal li:hover {
+    cursor: pointer;
+    background-color: #115e3a;
+    transition: 0.3s;
 }
 
 .add-modul {

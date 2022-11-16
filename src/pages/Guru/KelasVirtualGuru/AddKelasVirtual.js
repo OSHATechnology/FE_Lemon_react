@@ -1,14 +1,14 @@
 import React from 'react'
 import { Container, Form, Row, Col, Button } from 'react-bootstrap'
-import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 import { BiRefresh } from 'react-icons/bi'
+import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 
 const AddKelasVirtual = () => {
   return (
     <div>
         <NavBarGuru />
-        <Container>
-            <h5 className='mt-3 mb-5'>Buat Kelas Virtual Baru</h5>
+        <Container className='mt-5'>
+            <h5 className='mb-5'>Buat Kelas Virtual Baru</h5>
             <Form>
                 <Row>
                     <Col>

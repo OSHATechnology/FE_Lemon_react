@@ -1,58 +1,74 @@
 import React,{useState} from 'react'
-import { Button, Container } from 'react-bootstrap';
-import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
-import Tab from 'react-bootstrap/Tab';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
+import { Button, Container, Col, Row, Form, Table } from 'react-bootstrap';
+import { FaSearch, FaPen, FaTrashAlt } from 'react-icons/fa'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 import './Erapor.css'
-import { Table } from 'react-bootstrap';
-
-
 
 const Erapor = () => {
+  const [data, setData] = useState({})
+
   return (
-    <div><NavBarGuru/>
-    <h5><div className='MATERIDANTUGAS fw-bold'>E-RAPOT</div></h5>
-    
-    <Container>
-    <Row className='rapotz'>
-      <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>Kelas</Form.Label>
-          <Form.Select defaultValue="Silahkan Pilih Kelas">
-            <option disabled selected>Silahkan Pilih Kelas</option>
-            <option>...</option>
-          </Form.Select>
-        </Form.Group>
+    <div>
+      <NavBarGuru/>
+      <Container className='mt-5'>
+        <h5 className='fw-bold'>E-RAPOT</h5>
+        <Row className='justify-content-between align-items-end'>
+          <Col sm={6}>
+            <Row>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>Kelas</Form.Label>
+                <Form.Select defaultValue="Silahkan Pilih Kelas">
+                  <option disabled selected>Silahkan Pilih Kelas</option>
+                  <option>...</option>
+                </Form.Select>
+              </Form.Group>
 
-        <Form.Group as={Col} controlId="formGridState">
-          <Form.Label>Tingkat</Form.Label>
-          <Form.Select defaultValue="Silahkan Pilih Tingkat">
-            <option disabled selected>Silahkan Pilih Tingkat</option>
-            <option>...</option>
-          </Form.Select>
-          </Form.Group>
-      </Row>
-      <Button className='mt-3' variant='success'>Tampilkan Data</Button>
-    </Container>
-    <Container>
+              <Form.Group as={Col} controlId="formGridState">
+                <Form.Label>Tingkat</Form.Label>
+                <Form.Select defaultValue="Silahkan Pilih Tingkat">
+                  <option disabled selected>Silahkan Pilih Tingkat</option>
+                  <option>...</option>
+                </Form.Select>
+              </Form.Group>
+            </Row>
+          </Col>
+          <Col sm={6}>
+            <Button variant='success' className='float-end'>Tampilkan Data</Button>
+          </Col>
+        </Row>
+
         <Table striped bordered hover size='sm' className='text-center mt-3'>
-      <thead>
-        <tr>
-        <th>No</th>
-        <th>NISN</th>
-        <th>Nama Siswa/i</th>
-        <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-      </Table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>NISN</th>
+              <th>Nama Siswa/i</th>
+              <th colSpan={3}>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.length > 0 
+              ? data.map((item, key) => {
+                return (
+                  <tr>
+                    <td>No</td>
+                    <td>NISN</td>
+                    <td>Nama Siswa/i</td>
+                    <td><Button variant='success'><FaSearch /></Button></td>
+                    <td><Button variant='primary'><FaPen /></Button></td>
+                    <td><Button variant='danger'><FaTrashAlt /></Button></td>
+                  </tr>
+                )
+              })
+              : (
+                <tr>
+                  <td colSpan={4}>Data tidak ditemukan</td>
+                </tr>
+              )
+            }
+          </tbody>
+        </Table>
       </Container>
-
     </div>
   )
 }

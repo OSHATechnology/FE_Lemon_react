@@ -8,11 +8,14 @@ function Jam() {
   useEffect(() => {
     setInterval(() => {
       const date = new Date();
-      setClockState(date.toLocaleTimeString());
+      setClockState(date.toLocaleTimeString(navigator.language, {
+        hour: '2-digit',
+        minute:'2-digit'
+      }));
     }, 1000);
   }, []);
 
-  return <div className='clock12' style={{ fontSize: "15px"}}>{clockState}</div>;
+  return <div style={{ fontSize: "15px"}}>{clockState}</div>;
 }
 
 export default Jam;

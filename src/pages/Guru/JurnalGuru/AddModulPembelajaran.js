@@ -1,14 +1,13 @@
 import React from 'react'
 import { Form, Container, Col, Row, Button } from 'react-bootstrap'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
-import NavigationBar from '../../../components/NavigationBar/NavigationBar'
 
 const AddModulPembelajaran = () => {
   return (
     <div>
       <NavBarGuru />
-      <Container>
-        <h5 className='mt-4 mb-5'>Buat Modul Pembelajaran</h5>
+      <Container className='mt-5'>
+        <h5 className='mb-5'>Buat Modul Pembelajaran</h5>
         <Form>
           <Row>
             <Col>

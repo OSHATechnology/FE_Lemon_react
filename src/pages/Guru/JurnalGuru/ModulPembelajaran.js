@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Table, Container, Button, Form, Modal, FormCheck } from 'react-bootstrap'
 import { FaPen, FaSearch, FaTrashAlt } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 
 const ModulPembelajaran = () => {
@@ -11,10 +12,12 @@ const ModulPembelajaran = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const navigate = useNavigate();
+
   return (
     <div>
         <NavBarGuru />
-        <Container>
+        <Container className='mt-5'>
             <h5 className='my-3'>Modul 1 - Mapel 1</h5>
             <p className='mb-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum purus nec ipsum aliquam, eget luctus magna dapibus. Ut orci felis, tempus rhoncus metus a, pharetra euismod nulla. Phasellus nec quam eget nulla feugiat dictum eget ac diam. Pellentesque eu pharetra mauris. Maecenas sit amet bibendum felis. Vestibulum non tellus venenatis, venenatis nisl vitae, maximus magna. Ut tempus ultricies erat in laoreet. </p>
             <Table>
@@ -44,9 +47,9 @@ const ModulPembelajaran = () => {
                 </tbody>
             </Table>
             <div className='d-flex gap-3'>
-                <Button variant='success' className='border-radius'>Tambah Tugas dan Materi</Button>
+                <Button variant='success' className='border-radius' onClick={() => navigate('buat-materi')}>Tambah Tugas dan Materi</Button>
                 <Button variant='success' className='border-radius' onClick={handleShow}>Bagikan ke</Button>
-                <Button variant='success' className='border-radius'>Lihat Proses Pembelajaran</Button>
+                <Button variant='success' className='border-radius' onClick={() => navigate('kelas')}>Lihat Proses Pembelajaran</Button>
             </div>
         </Container>
 

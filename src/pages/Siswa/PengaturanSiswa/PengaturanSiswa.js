@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavBarSiswa from '../../../components/NavBarSiswa/NavBarSiswa';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import Nav from 'react-bootstrap/Nav';
-import { Container } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+import { Container, Card, Nav, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -33,112 +29,112 @@ const PengaturanSiswa = () => {
   },[]);
 
   return (
-    <div><NavBarSiswa/>
-     <h5><div className='labeldasb fw-bold'>Pengaturan Akun Siswa</div></h5>
-    
-    <Container className='card1 mb-5'>
-    <Card>
-      <Card.Header>
-        <Nav variant="tabs" defaultActiveKey="#first">
-          <Nav.Item>
-            <Nav.Link href="#first">Profil</Nav.Link>
-          </Nav.Item>
-        </Nav>
-      </Card.Header>
-      <Card.Body>
-        
-      
-        <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail" >
-        <Form.Label>Nama Lengkap</Form.Label>
-        <Form.Control name='nama'className='form' value={user.nama} disabled />
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>NISN</Form.Label>
-        <Form.Control type="email" value={user.nisn} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+    <div>
+      <NavBarSiswa/>
+     
+      <Container className='card1 mb-5'>
+        <h5 className='fw-bold'>Pengaturan Akun Siswa</h5>
+        <Card>
+          <Card.Header>
+            <Nav variant="tabs" defaultActiveKey="#first">
+              <Nav.Item>
+                <Nav.Link href="#first">Profil</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Card.Header>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Alamat Rumah</Form.Label>
-        <Form.Control type="email" value={user.alamat} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+          <Card.Body>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail" >
+                <Form.Label>Nama Lengkap</Form.Label>
+                <Form.Control name='nama'className='form' value={user.nama} disabled />
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Kode Pos</Form.Label>
-        <Form.Control type="email" value={user.kd_pos} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>NISN</Form.Label>
+                <Form.Control type="email" value={user.nisn} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="email" value={user.email} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Alamat Rumah</Form.Label>
+                <Form.Control type="email" value={user.alamat} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Nama Ayah</Form.Label>
-        <Form.Control type="email" value={user.nama_ayah} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Kode Pos</Form.Label>
+                <Form.Control type="email" value={user.kd_pos} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Nama Ibu</Form.Label>
-        <Form.Control type="email" value={user.nama_ibu} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" value={user.email} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Tempat Lahir</Form.Label>
-        <Form.Control type="email" value={user.tempat} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Nama Ayah</Form.Label>
+                <Form.Control type="email" value={user.nama_ayah} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Tanggal Lahir</Form.Label>
-        <Form.Control type="email" value={user.tgl_lahir} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Nama Ibu</Form.Label>
+                <Form.Control type="email" value={user.nama_ibu} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Jenis Kelamin</Form.Label>
-        <Form.Control type="email" value={user.jns_kelamin} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Tempat Lahir</Form.Label>
+                <Form.Control type="email" value={user.tempat} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Agama</Form.Label>
-        <Form.Control type="email" value={user.agama} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Tanggal Lahir</Form.Label>
+                <Form.Control type="email" value={user.tgl_lahir} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Nomor Telepon</Form.Label>
-        <Form.Control type="email" value={user.telepon} disabled/>
-        <Form.Text className="text-muted">
-        </Form.Text>
-      </Form.Group>
-      <div class="card-footer">
-                    <small id="password" class="form-text text-muted">Jika data diatas masih belum sesuai, silahkan hubungi Wali Kelas</small>
-                </div>
-      </Form>
-      </Card.Body>
-    </Card>
-    </Container>
-    
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Jenis Kelamin</Form.Label>
+                <Form.Control type="email" value={user.jns_kelamin} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Agama</Form.Label>
+                <Form.Control type="email" value={user.agama} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Nomor Telepon</Form.Label>
+                <Form.Control type="email" value={user.telepon} disabled/>
+                <Form.Text className="text-muted">
+                </Form.Text>
+              </Form.Group>
+            </Form>
+          </Card.Body>
+          <Card.Footer>
+            <small id="password" class="form-text text-muted">Jika data diatas masih belum sesuai, silahkan hubungi Wali Kelas</small>
+          </Card.Footer>
+        </Card>
+      </Container>
     </div>
   )
 }

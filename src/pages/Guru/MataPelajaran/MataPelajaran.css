@@ -1,15 +1,14 @@
-
 .warnaa2 {
     background-color: rgb(255, 255, 255) !important;
     color: rgb(0, 0, 0) !important;
 }
 
 .warnaa2:hover {
-    background-color:green !important;
+    background-color:#198754 !important;
     color: aliceblue !important;
 }
 
 .bakronn .nav-link.active {
-    background-color:green !important;
+    background-color:#198754 !important;
     color: aliceblue !important;
 }

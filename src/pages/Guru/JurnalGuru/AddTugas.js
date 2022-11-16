@@ -1,6 +1,5 @@
 import { React, useState } from 'react'
 import { Col, Container, Form, Row, InputGroup, Button } from 'react-bootstrap'
-import NavigationBar from '../../../components/NavigationBar/NavigationBar'
 import { FaClock } from 'react-icons/fa'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 
@@ -18,8 +17,8 @@ const AddTugas = () => {
   return (
     <div>
         <NavBarGuru />
-        <Container>
-            <h5 className='mt-3 mb-5'>Buat Tugas/Materi - Modul 1</h5>
+        <Container className='mt-5'>
+            <h5 className=' mb-5'>Buat Tugas/Materi - Modul 1</h5>
             <Form>
                 <Row>
                     <Col>

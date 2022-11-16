@@ -1,5 +1,4 @@
 import React, { useState } from  'react'
-import './JurnalGuruSiswa.css'
 import { Container, Table, Form, Button } from 'react-bootstrap'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 
@@ -9,8 +8,8 @@ const JurnalGuruSiswa = () => {
     return (
     <div>
         <NavBarGuru />
-        <Container>
-            <h3 className='mt-3'>Jurnal Guru - Modul 1</h3>
+        <Container className='mt-5'>
+            <h3>Jurnal Guru - Modul 1</h3>
             <div className='d-flex justify-content-between'>
                 <div className='d-flex my-3'>
                     <div className='me-3 d-flex justify-content-center align-items-center'>

@@ -7,7 +7,7 @@ function Tanggal() {
 
   const formatDate = Moment().format('dddd, DD/MM/YYYY');
   
-  return <div className='Tanggal12' style={{ fontSize: "13px"}}>{formatDate}</div>;
+  return <div style={{ fontSize: "13px"}}>{formatDate}</div>;
 }
 
 export default Tanggal;

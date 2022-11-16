@@ -3,17 +3,19 @@
 }
 
 .logos
-{width: 45px;
-height: auto;
-margin-right: 5px;
-margin-top: 5px;
+{
+    width: 45px;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 5px;
 }
 
 .logos2
-{width: 90px;
+{
+    width: 90px;
     height: auto;
     margin-top: 10px;
-    }
+}
 
 .logos3 {
     width: 50px;
@@ -22,8 +24,5 @@ margin-top: 5px;
 }
 
 .nav1 {
-    margin-left: 600px;
+    justify-content: flex-end;
 }
-
-
-

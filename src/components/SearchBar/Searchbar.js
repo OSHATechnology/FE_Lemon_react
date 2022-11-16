@@ -7,15 +7,15 @@ import './Searchbar.css'
 const Searchbar = () => {
   return (
     <div>
-       <Form className="d-flex bb">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-8"
-              aria-label="Search"
-            />
-            <Button variant="outline-warning">Search</Button>
-          </Form>
+      <Form className="d-flex justify-content-end mt-3 me-3">
+        <Form.Control
+          type="search"
+          placeholder="Search"
+          className="me-8"
+          aria-label="Search"
+        />
+        <Button variant="outline-warning">Search</Button>
+      </Form>
     </div>
   )
 }

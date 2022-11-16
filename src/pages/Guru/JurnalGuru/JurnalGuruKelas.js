@@ -1,16 +1,19 @@
 import React, { useState } from  'react'
-import './JurnalGuruKelas.css'
 import { Container, Table, Form, Button } from 'react-bootstrap'
+import { FaSearch } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 import NavBarGuru from '../../../components/NavBarGuru/NavBarGuru'
 
 const JurnalGuruKelas = () => {
     const [data, setData] = useState({})
 
+    const navigate = useNavigate()
+
     return (
     <div>
         <NavBarGuru />
-        <Container>
-            <h3 className='mt-3'>Jurnal Guru - Modul 1</h3>
+        <Container className='mt-5'>
+            <h3>Jurnal Guru - Modul 1</h3>
             <div className='d-flex justify-content-between'>
                 <div className='d-flex w-60 my-3'>
                     <p className='my-auto me-3'>Pilih Kelas</p>
@@ -35,6 +38,7 @@ const JurnalGuruKelas = () => {
                         <th>NISN</th>
                         <th>Nama Siswa</th>
                         <th>Proses Pembelajaran</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,10 +50,11 @@ const JurnalGuruKelas = () => {
                             <td>11111111</td>
                             <td>Name</td>
                             <td>90%</td>
+                            <td><Button variant='primary' className='w-100' onClick={() => navigate('/jurnalguru/modul/siswa')}><FaSearch /> Lihat Detail</Button></td>
                         </tr>
                         )
                     })
-                    : <tr><td colSpan={4} className='text-center'>Data tidak ditemukan</td></tr>}
+                    : <tr><td colSpan={5} className='text-center'>Data tidak ditemukan</td></tr>}
                 </tbody>
             </Table>
         </Container>

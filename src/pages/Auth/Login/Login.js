@@ -1,22 +1,17 @@
 import axios from "axios";
-import react, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import NavBarSiswa from "../../../components/NavBarSiswa/NavBarSiswa";
 import NavigationBar from "../../../components/NavigationBar/NavigationBar";
 import {
-  MDBBtn,
   MDBContainer,
-  MDBCheckbox,
   MDBCardImage,
   MDBRow,
   MDBCol,
-  MDBIcon,
-  MDBInput
 }
 from 'mdb-react-ui-kit';
+import { Button } from "react-bootstrap";
 import logo from '../../../img/Lemon.png'
 import './Login.css'
-import { Button } from "react-bootstrap";
 
 function Login(){
 
@@ -29,7 +24,7 @@ function Login(){
 
   useEffect(() => {
     if(localStorage.getItem('token')){
-      navigate('/home');
+      navigate('/siswa/dasboard');
     }
   },[]);
 
@@ -57,54 +52,51 @@ function Login(){
 
   return(
     <div>
-    <NavigationBar/>
-    <MDBContainer fluid mt='5'>
-        <MDBRow>
-          <MDBCol md='3' lg='5' className='order-2 order-lg-1 d-flex flex-column align-items-center col1'>
-
-            <p className="text-center h1 fw-bold mx-1 mx-md-4 mt-4">LOGIN SISWA</p>
-            <p className="text-center h7 mb-4">Selamat datang di E-learning Lemon para siswa</p>
-                  {
-                    validation.error && (
-                      <div className="alert alert-danger" role="alert">
-                       { validation.error }
-                        </div>
-                    )
-                  }
-            <form onSubmit={loginHandler}>
-            <div className="d-flex flex-row align-items-center mb-4">
-              <MDBInput label="Alamat Email" type="text" className="w-100 mg1 form-control" id="emailsiswa" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email"/>
+      <NavigationBar/>
+      <MDBContainer className="mt-5 pt-3">
+        <MDBRow className="justify-content-center auth-form-row">
+          <MDBCol>
+            <p className="text-center h1 fw-bold">LOGIN SISWA</p>
+            <p className="text-center">Selamat datang di E-learning Lemon para siswa</p>
               {
-                validation.email && (
-                <small className="text-danger">
-                   { validation.email[0] }
-              </small>
-              )
-              }
-            </div>
-
-                    <div className="mb-3">
-                      <label htmlFor="password" className="form-label">Kata Sandi</label>
-                      <input type="password" className="form-control" id="passwordsiswa" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
-                      {
-                        validation.password && (
-                          <small className="text-danger">
-                            { validation.password[0] }
-                          </small>
-                        )
-                      }
+                validation.error && (
+                  <div className="alert alert-danger" role="alert">
+                    { validation.error }
                     </div>
-                  </form>
-                  <Button onClick={loginHandler} type="submit" className='btn btn-warning mt-4' style={{color: 'white'}} size='lg'>Login</Button>
-      
- </MDBCol>
- <MDBCol md='1' lg='5' className='d-flex align-items-center md1'>
-            <MDBCardImage src={logo} fluid className='logologins'/>
+                )
+              }
+            <form onSubmit={loginHandler}>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Alamat Email</label>
+                <input label="Alamat Email" type="text" className="form-control" id="emailsiswa" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="email@example.com"/>
+                {
+                  validation.email && (
+                  <small className="text-danger">
+                    { validation.email[0] }
+                  </small>
+                  )
+                }
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">Kata Sandi</label>
+                <input type="password" className="form-control" id="passwordsiswa" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="*******"/>
+                {
+                  validation.password && (
+                    <small className="text-danger">
+                      { validation.password[0] }
+                    </small>
+                  )
+                }
+              </div>
+            </form>
+            <Button onClick={loginHandler} type="submit" className='btn btn-warning mt-3 w-100' size='lg'>Login</Button>
           </MDBCol>
-
+          <MDBCol className='d-flex justify-content-center align-items-center'>
+            <MDBCardImage src={logo}/>
+          </MDBCol>
         </MDBRow>
-
-</MDBContainer>
+      </MDBContainer>
     </div>
   )
 }
