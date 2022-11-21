@@ -33,7 +33,7 @@ const PengaturanSiswa = () => {
       <NavBarSiswa/>
      
       <Container className='card1 mb-5'>
-        <h5 className='fw-bold'>Pengaturan Akun Siswa</h5>
+        <h5 className='fw-bold mt-5 mb-4'>Pengaturan Akun Siswa</h5>
         <Card>
           <Card.Header>
             <Nav variant="tabs" defaultActiveKey="#first">

@@ -157,7 +157,6 @@ const Register = () => {
                 <option disabled selected>- Silahkan Pilih -</option>
                 <option>Laki-Laki</option>
                 <option>perempuan</option>
-                <option>Lainnya</option>
               </Form.Select>
             </Form.Group>
             
@@ -200,10 +199,6 @@ const Register = () => {
                 </Button>
               </Modal.Footer>
             </Modal>
-          </MDBCol>
-
-          <MDBCol className='d-flex justify-content-center align-items-start'>
-            <MDBCardImage src={logo} className='mt-5'/>
           </MDBCol>
         </MDBRow>
 

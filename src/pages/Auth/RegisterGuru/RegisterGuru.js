@@ -22,6 +22,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Swal from 'sweetalert2'
+import {useNavigate} from 'react-router-dom';
+
 
 const RegisterGuru = () => {
   const [dataRegister, setDataRegister] = useState({
@@ -40,19 +43,36 @@ const RegisterGuru = () => {
 
   const [cek,setCek] = useState(false)
 
+  const navigate = useNavigate()
+
   const handleRegister = () => {
+    let timerInterval
     if(cek===true){
         console.log(dataRegister);
         const resp = axios.post('/api/auth/register-guru', dataRegister);
         resp.then((response) => {
+          Swal.fire({
+            title: 'Register Berhasil!',
+            icon: 'success',
+            timer: 2000,
+            timerProgressBar: true,
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            navigate('/login')
+          })
           console.log(response);
         }).catch((error) => {
           console.log(error);
         }); 
     }else {
-        alert('Harap Centang')
+      Swal.fire({
+        title: 'Harap centang setujui untuk melanjutkan',
+        confirmButtonColor: '#ffc107',
+        icon: 'warning',
+      })
     }
-    
   }
 
   const [show, setShow] = useState(false);
@@ -63,7 +83,7 @@ const RegisterGuru = () => {
   return (
     <div>
       <NavigationBar />
-      <MDBContainer className='mt-3'>
+      <MDBContainer className='mt-5 ft-5'>
         <MDBRow>
           <MDBCol>
             <p className="text-center h1 fw-bold">Registrasi</p>
@@ -71,11 +91,11 @@ const RegisterGuru = () => {
             
             <Form.Group className="mb-3">
                 <Form.Label>NIP</Form.Label>
-                <Form.Control label='NISN' onChange={(e) => setDataRegister({ ...dataRegister, nisn: e.target.value })} id='inputNisn' type='number' className='w-100 mg1' />
+                <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, nip: e.target.value })} id='inputNip' type='number' className='w-100 mg1' />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Nama Lengkap</Form.Label>
-                <Form.Control label='Nama Lengkap' onChange={(e) => setDataRegister({ ...dataRegister, nama: e.target.value })} id='inputName' type='text' className='w-100 mg1' />
+                <Form.Control onChange={(e) => setDataRegister({ ...dataRegister, nama: e.target.value })} id='inputName' type='text' className='w-100 mg1' />
               </Form.Group>
 
             <Row>
@@ -125,7 +145,6 @@ const RegisterGuru = () => {
                 <option disabled selected>- Silahkan Pilih -</option>
                 <option>Laki-Laki</option>
                 <option>perempuan</option>
-                <option>Lainnya</option>
               </Form.Select>
             </Form.Group>
             
@@ -163,15 +182,11 @@ const RegisterGuru = () => {
                 <Button variant="secondary" onClick={handleClose}>
                   Kembali
                 </Button>
-                <Button variant="warning" onClick={handleRegister}>
+                <Button variant="success" onClick={handleRegister}>
                   Lanjutkan
                 </Button>
               </Modal.Footer>
             </Modal>
-          </MDBCol>
-
-          <MDBCol className='d-flex justify-content-center align-items-start'>
-            <MDBCardImage src={logo} className='mt-5'/>
           </MDBCol>
         </MDBRow>
 

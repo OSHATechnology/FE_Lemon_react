@@ -54,7 +54,7 @@ const LoginGuru = () => {
   return (
     <div>
       <NavigationBar/>
-      <MDBContainer className="mt-5 pt-3">
+      <MDBContainer className="mt-5 pt-5">
         <MDBRow className="justify-content-center auth-form-row">
           <MDBCol>
             <p className="text-center h1 fw-bold">LOGIN GURU</p>

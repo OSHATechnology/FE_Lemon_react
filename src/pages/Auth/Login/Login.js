@@ -53,7 +53,7 @@ function Login(){
   return(
     <div>
       <NavigationBar/>
-      <MDBContainer className="mt-5 pt-3">
+      <MDBContainer className="mt-5 pt-5">
         <MDBRow className="justify-content-center auth-form-row">
           <MDBCol>
             <p className="text-center h1 fw-bold">LOGIN SISWA</p>
@@ -92,7 +92,7 @@ function Login(){
             </form>
             <Button onClick={loginHandler} type="submit" className='btn btn-warning mt-3 w-100' size='lg'>Login</Button>
           </MDBCol>
-          <MDBCol className='d-flex justify-content-center align-items-center'>
+          <MDBCol className='d-flex justify-content-center align-items-center '>
             <MDBCardImage src={logo}/>
           </MDBCol>
         </MDBRow>
