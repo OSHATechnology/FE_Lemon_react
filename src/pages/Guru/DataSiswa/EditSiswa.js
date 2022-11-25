@@ -81,7 +81,7 @@ class EditSiswa extends Component {
     render() {
         return (
             <div><NavBarGuru />
-                <h5><div className='labeldasb fw-bold'>Pengaturan Akun</div></h5>
+                <h5><div className='mt-5 mb-5 mm1 fw-bold'>Pengaturan Akun</div></h5>
                 <Container className='card1'>
                     <Card>
                         <Card.Header>Ubah Data Siswa
@@ -107,7 +107,7 @@ class EditSiswa extends Component {
 
                                 <Form.Group className="mb-3">
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control type="email" name='email' onChange={this.handleInput} value={this.state.email} className="form" />
+                                    <Form.Control type="email" name='email' onChange={this.handleInput} value={this.state.email} className="form" disabled/>
                                 </Form.Group>
 
 

@@ -6,10 +6,17 @@
 
 .logo1 {
     width: 110px;
+    margin-left: 30px;
 }
 
 .logo3 {
     width: 500px;
     height: 300px;
     border-radius: 20px;
+    margin-left: 50px;
 }
+
+.hometext {
+    margin-left: 40px;
+}
+

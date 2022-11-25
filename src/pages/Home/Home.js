@@ -13,14 +13,14 @@ function Home() {
         <Row className='h101'>
           <Col>
             <div className='d-flex gap-3 align-items-center mb-3'>
-              <img className='logo1' src={logo1}></img>
-              <h1 className='fw-bold'>E-Learning</h1>
+              <img fluid className='logo1' src={logo1}></img>
+              <h1 className='mt-4 fw-bold'>Lemon E-Learning</h1>
             </div>
-            <div className='text6'>Learning & Monitoring System By OSHA TECHNOLOGY INDONESIA</div>
-            <div>2022</div>
+            <div fluid className='hometext'>Learning & Monitoring System By OSHA TECHNOLOGY INDONESIA</div>
+            <div fluid className='hometext'>2022</div>
           </Col>
           <Col className='d-flex align-items-center md1'>
-            <img src={logo2} fluid className='mt-6 logo3'/>
+            <img src={logo2} fluid className='mt-5 logo3'/>
           </Col>
         </Row>
       </Container>
